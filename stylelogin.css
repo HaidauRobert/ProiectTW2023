@@ -1,0 +1,81 @@
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(poze/pozafundal.jpg);
+    background-size: cover;
+    height: 90vh;
+    background-position: center;
+}
+
+.login {
+    width: 80%;
+    padding: 10% 0 0;
+    margin: auto;
+}
+
+form {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.6);
+    max-width: 100%;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+}
+
+form .input {
+    font-family: "Roboto", sans-serif;
+    outline: 1;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+form .inputSubmit {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    background: darkred;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+form .inputSubmit:hover, form inputSubmit:active{
+    background:white;
+    color:black;
+}
+
+form .message {
+    margin: 15px 0 0;
+    color: white;
+    font-size: 20px;
+}
+
+form .message a {
+    color: darkred;
+    text-decoration: none;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+    .login {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .login {
+        width: 35%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .login {
+        width: 25%;
+    }
+}
