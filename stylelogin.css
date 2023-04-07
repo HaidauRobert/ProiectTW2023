@@ -1,14 +1,28 @@
 body {
-    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(poze/pozafundal.jpg);
+    background: linear-gradient(to top, rgba(248, 248, 248, 0)25%, rgba(248, 248, 248, 0)25%),rgb(100, 10, 10);
     background-size: cover;
     height: 90vh;
     background-position: center;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 .login {
+    max-width: 400px;
     width: 80%;
-    padding: 10% 0 0;
-    margin: auto;
+    padding: 5% 0 0;
+    margin:auto;
+}
+
+h1 img {
+    position:relative;
+    margin-left:3%;
+    margin-top:0%;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid black;
+    border-radius:5%;
+    
 }
 
 form {
@@ -45,9 +59,9 @@ form .inputSubmit {
     cursor: pointer;
 }
 
-form .inputSubmit:hover, form inputSubmit:active{
-    background:white;
-    color:black;
+form .inputSubmit:hover, form inputSubmit:active {
+    background: red;
+    color: black;
 }
 
 form .message {
@@ -61,21 +75,45 @@ form .message a {
     text-decoration: none;
 }
 
-/* Media Queries */
-@media screen and (min-width: 768px) {
+/* Responsive design for large devices */
+@media (min-width: 992px) and (max-width: 1199px) {
     .login {
         width: 50%;
     }
 }
 
-@media screen and (min-width: 992px) {
+/* Responsive design for medium devices */
+@media (min-width: 768px) and (max-width: 991px) {
     .login {
-        width: 35%;
+        width: 60%;
+    }
+
+    form .input,
+    form .inputSubmit {
+        font-size: 12px;
     }
 }
 
-@media screen and (min-width: 1200px) {
+/* Responsive design for small devices */
+@media (min-width: 576px) and (max-width: 767px) {
     .login {
-        width: 25%;
+        width: 70%;
+    }
+
+    form .input,
+    form .inputSubmit {
+        font-size: 12px;
+    }
+}
+
+/* Responsive design for extra small devices */
+@media (max-width: 575px) {
+    .login {
+        width: 80%;
+    }
+
+    form .input,
+    form .inputSubmit {
+        font-size: 12px;
     }
 }
