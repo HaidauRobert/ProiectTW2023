@@ -63,13 +63,11 @@
                         <li>
                             3.1 User Interfaces
                         </li>
-                            <ol>
-                                <li>3.2.1 Sign Up</li>
-                                <li>3.2.2 Login </li>
-                                <li>3.2.3 My Profile</li>
-                                <li>3.2.4 Change Password </li>
-                                <li>3.2.5 Admin Page</li>
-                            </ol>
+                            <li>3.2.1 Sign Up</li>
+                            <li>3.2.2 Login </li>
+                            <li>3.2.3 My Profile</li>
+                            <li>3.2.4 Change Password </li>
+                            <li>3.2.5 Admin Page</li>
                         <li>
                             3.2 Hardware Interfaces
                         </li>
@@ -118,6 +116,7 @@
                         </li>
                      </ol>
                 </li>
+            </ol>
         </section>
 
         <br>
@@ -249,28 +248,42 @@
                 <h3>
                     3.1 User Interfaces
                 </h3>
-                <p>
-                    <ol>
-                    <b><li>3.2.1 Sign Up <li></b>
-                        <img src="poze/SignUp.png">
-                        <br>
-                    The user may register to our website by completing the form and submitting it.
-                    <b><li>3.2.2 Login </li></b>
-                        <img src="poze/Login.png">
-                        <br>
-                    The user may log into our website by completing the form with his credentials.
-                    <b><li>3.2.3 My Profile</li></b>
-                        <img src="poze/MyProfile.png"><br>
-                    In this page, the user may set his profile picture and change his current password. (More functionalities will be added)
-                    <b><li>3.2.4 Change Password </li></b>
-                        <img src="poze/ChangePass.png"><br>
-                    The user can change his password by confirming the old one and choosing the new one.
-                    <b><li>3.2.5 Admin Page</li></b>
-                        <img src="poze/Admin.png"><br>
-                    This page is for users with the role of admin only. The admin at this moment can create new tags, delete tags and download databases
-                    in JSON/CSV format. (More functionalities will be added)
-                    </ol>
-                </p>
+                <h4>3.1.1 Sign Up </h4>
+                    <figure>
+                        <img src="poze/SignUp.png" alt="SignUp">
+                    </figure>
+                <p>The user may register to our website by completing the form and submitting it. </p>
+                <h4>3.1.2 Login </h4>
+                    <figure>
+                        <img src="poze/Login.png" alt="Login">
+                    </figure>
+                    <br>
+                <p>The user may log into our website by completing the form with his credentials. </p>
+                <h4>3.1.3 My Profile</h4>
+                <figure>
+                    <img src="poze/MyProfile.png" alt="MyProfile">
+                </figure>
+                <p>In this page, the user may set his profile picture and change his current password. (More functionalities will be added)</p>
+                <h4>3.1.4 Change Password </h4>
+                <figure>
+                    <img src="poze/ChangePass.png" alt="ChangePass">
+                </figure>
+                <p>The user can change his password by confirming the old one and choosing the new one.</p>
+                <h4>3.1.5 Admin Page</h4>
+                <figure>
+                    <img src="poze/Admin.png" alt="Admin">
+                </figure>
+                <p>This page is for users with the role of admin only. The admin at this moment can create new tags, delete tags and download databases
+                in JSON/CSV format. (More functionalities will be added)</p>
+                <h4>3.1.6 New Post Page</h4>
+                <figure>
+                    <img src="poze/NewPostDoc1.png" alt="NewPostDoc1">
+                </figure>
+                <p>The user can choose a name for the thing they chose, a level of annoyance and a short description of what happened.</p>
+                <figure>
+                    <img src="poze/NewPostDoc2.png" alt="NewPostDoc2">
+                </figure>
+                <p>They can also choose tags to classify the object and the place, and can upload a picture to showcase exactly what they mean.</p>
             </section>
             <section>
                 <h3>
@@ -304,18 +317,41 @@
             <h2> 4. System Features </h2>
             <section>
                 <h3>
-                    Feature 1
+                    4.1 Dislike feed
                 </h3>
                 <p>
-                    Description 1: Add pictures with <-figure->
+                    The Dislike feed shows the most (un)popular things. The user can sort it in different ways to look for a specific category. <br>
+                    The posts are stored in the database, as well as the tags. <br>
+                    The user can "hatescribe" to a subject so that they will receive posts about the given subject.
                 </p>
             </section>
             <section>
                 <h3>
-                    Feature 2
+                    4.2 Post new Dislike
                 </h3>
                 <p>
-                    Description 2: Add pictures with <-figure->
+                    In the page afferent to this functionality the user can post a new Review of something, giving it a name, annoyance level, 
+                    description and different tags to classify it. Tags are predetermined by admins. A picture can also be uploaded for better context.
+                    <br>
+                    The review then goes to the database and is taken into consideration when calculating the ratings of the thing it describes.
+                </p>
+            </section>
+            <section>
+                <h3>
+                    4.3 Admin Module     
+                </h3>
+                <p>
+                    A page admin can go here to add new tags to the application and export the data as CSV and JSON. The tags determined by the admin can be selected by users when creating
+                    new posts or sorting the feed.
+                </p>
+            </section>
+            <section>
+                <h3>
+                    4.4 Account management
+                </h3>
+                <p>
+                    In the page associated to this functionality the user can modify the picture associated with their account and change their password.
+                    The passwords, pictures and account names are stored in the database. 
                 </p>
             </section>
         </article>
