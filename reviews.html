@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<style>
+    * {
+	box-sizing: border-box;
+}
+
+body {
+        background: black;
+        height: 100vh;
+        margin: 0;
+}
+
+
+.red-bar {
+        background-color: rgb(128, 15, 0);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        padding: 0 20px;
+      }
+      
+      
+.lighter-red-row {
+        background-color: rgb(41, 0, 0);
+		color: white;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.newsfeed {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.review {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	margin: 10px;
+	padding: 10px;
+	background-color: rgba(82, 2, 2, 0.705);
+	color: white;
+	box-shadow: 0px 0px 5px #ccc;
+	border: 1px solid rgb(36, 20, 20);
+	border-radius: 10px;
+	box-sizing: border-box;
+}
+
+.entry-image {
+	flex: 0 0 30%;
+	margin-right: 20px;
+}
+
+.entry-image img {
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+}
+
+.review h2 {
+	margin: 0;
+	font-size: 24px;
+}
+
+.review .rating {
+	margin-top: 5px;
+	margin-bottom: 10px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.review .comment {
+	margin-bottom: 10px;
+	font-style: italic;
+}
+
+.search-bar input[type="text"] {
+	width: 70%;
+	margin-left: 5px;
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	background-color: rgb(197, 129, 129);
+	color: #fff;
+}
+
+.search-bar button[type="submit"] {
+	padding: 5px 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: #ccc;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.search-bar button[type="submit"]:hover {
+	background-color: #aaa;
+}
+
+
+.newsfeed-page-button {
+	margin-left: 10px;
+	padding: 5px 5px;
+	border: none;
+	border-radius: 5px;
+	background-color: darkred;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.newsfeed-page-button:hover {
+	background-color: rgb(141, 61, 61);
+}
+
+.sort-by {
+	padding: 3px;
+	border: none;
+	border-radius: 5px;
+	background-color: darkred;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.sort-by:hover {
+	background-color: rgb(141, 61, 61);
+}
+
+
+#navbar {
+	overflow: hidden;
+	background-color: #333;
+}
+
+	
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+	/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+	padding-top: 60px;
+}
+
+</style>
+<head>
+	<meta name="Bercovici Adrian" content="Reviews of something people disliked">
+	<title>Reviews</title>
+</head>
+<body>
+<div id="navbar">
+    <div class="red-bar">
+		<h1><b>Thanks, I hate it!</b></h1>
+		<p>logged in as: AdiBerco</p>
+	  </div>
+	  
+	  <div class="lighter-red-row">
+		<p><b>KFC Iasi</b></p>
+	  </div>
+	  <div class="lighter-red-row">
+		<p><b>Average rating -4.5/-5 - Trully desipciable</b></p>
+	  </div>
+	  <div class="lighter-red-row">
+		<p><b>Most popular tags</b></p><button class="newsfeed-page-button">Restaurant</button><button class="newsfeed-page-button">Fast food</button><button class="newsfeed-page-button">Fried Chicken</button><button class="newsfeed-page-button">Fries</button><button class="newsfeed-page-button">Expensive</button>
+	  </div>
+	  <div class="lighter-red-row">
+		<p><b>Location</b></p><button class="newsfeed-page-button">Iasi</button><button class="newsfeed-page-button">Romania</button>
+	  </div>
+	  <div class="lighter-red-row">
+		<p><b>Sort reviews by:	</b></p>
+		<select class="sort-by">
+			<option value="date">Date</option>
+			<option value="likes">Most useful</option>
+		</select>
+	  </div>
+	  <div class="lighter-red-row">
+		<p><b>You hate this place too? Tell the workd about! </b></p>
+		<button class="newsfeed-page-button">I hate this thing!</button>
+	  </div>
+</div>
+	<div class="container margin">
+			<div class="review">
+				<div class="entry-image">
+					<img src="poze/poorlymadechicken.png" alt="entry image">
+				</div>
+				<div>
+					<h3>Date: 2 april 2023 by <b>AdiBerco</b></h3>
+					<img src="poze/Angry.png" alt="review icon">
+					<p class="comment"><h1>Review: </h1><b>This thing is so bad, i would rather step on a lego then use it again!</b></p>
+					<p>200 people found this review useful<button class="newsfeed-page-button">Like!</button></p>
+				</div>
+			</div>
+			<!-- add more reviews here -->
+			<div class="review">
+				<div class="entry-image">
+					<img src="poze/sadburgers.png" alt="entry image">
+				</div>
+				<div>
+					<h3>Date: 5 april 2023 by <b>RobertHaidau</b></h3>
+					<img src="poze/Swearing.png" alt="review icon">
+					<p class="comment"><h1>Review: </h1><b>Vvv bad. Dont use!</b></p>
+					<p>125 people found this review useful<button class="newsfeed-page-button">Like!</button></p>
+				</div>
+			</div>
+			<div class="review">
+				<div class="entry-image">
+					<img src="poze/badsteak_400_250.png" alt="entry image">
+				</div>
+				<div>
+					<h3>Date: 1 april 2023 by <b>CristiPano</b></h3>
+					<img src="poze/Mad.png" alt="review icon">
+					<p class="comment"><h1>Review: </h1><b>So i was just enjoying my regular sunday morning, having a good time and all when all of a sudden I had the unfortunate idea to order a burger from this God forsaken place.
+						Lord almighty, what a bad idea that was. Words cannot begin to describe how it ruined my day. Firstly it took them 2 hours to deliver it. Ofcourse once it made it to me, the burger was soggy and cold. The meat was half raw and 
+						tasted like the sole of a boot. Practically rubber. I would rather eat my hat before i order from this place again.
+					</b></p>
+					<p>111 people found this review useful<button class="newsfeed-page-button">Like!</button></p>
+				</div>
+			</div>
+
+	</div>
+</body>
+</html>
+
