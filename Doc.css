@@ -25,6 +25,9 @@ ol {
 ol ol{
     font-size:75%;
 }
+ol img{
+    width:50%;
+}
 img{
     margin: auto;
     width:auto;
