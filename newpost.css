@@ -121,6 +121,13 @@ form .inputSubmit:hover, form inputSubmit:active {
     color: black;
 }
 
+form .buton-poza {
+    align-items: center;
+    margin: auto;
+    padding-bottom: 10px;
+    color: darkred;
+}
+
 /* Responsive design for large devices */
 @media (min-width: 992px) and (max-width: 1199px) {
     .emojis img {
