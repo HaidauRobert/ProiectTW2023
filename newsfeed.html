@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<style>
+    * {
+	box-sizing: border-box;
+}
+
+body {
+        background: black;
+        height: 100vh;
+        margin: 0;
+}
+
+.scroll-box {
+	background-color: rgb(41, 0, 0);
+  display: flex;
+  overflow-x: scroll;
+  white-space: nowrap;
+  height: 50px;
+}
+
+.hatescribed-item {
+	height: 30px;
+	margin-left: 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: darkred;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.hatescribed-item:hover {
+	background-color: rgb(141, 61, 61);
+}
+
+/* Scrollbar styles */
+.scroll-box::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scroll-box::-webkit-scrollbar-track {
+  background: #504343;
+}
+
+.scroll-box::-webkit-scrollbar-thumb {
+  background-color: darkred;
+  border-radius: 10px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb:hover {
+  background-color: #8e3e3e;
+}
+
+.red-bar {
+        background-color: rgb(128, 15, 0);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        padding: 0 20px;
+      }
+      
+.lighter-red-row {
+        background-color: rgb(41, 0, 0);
+		color: white;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.newsfeed {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.entry {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	margin: 10px;
+	padding: 10px;
+	background-color: rgba(82, 2, 2, 0.705);
+	color: white;
+	box-shadow: 0px 0px 5px #ccc;
+	border: 1px solid rgb(36, 20, 20);
+	border-radius: 10px;
+	box-sizing: border-box;
+}
+
+.entry-image {
+	flex: 0 0 30%;
+	margin-right: 20px;
+}
+
+.entry-image img {
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+}
+
+.entry-content {
+	flex: 0 0 70%;
+}
+
+.entry h2 {
+	margin: 0;
+	font-size: 24px;
+	color: wheat;
+}
+
+.entry .rating {
+	margin-top: 5px;
+	margin-bottom: 10px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.entry .comment {
+	margin-bottom: 10px;
+	font-style: italic;
+}
+
+.entry .tags {
+	margin-bottom: 10px;
+}
+
+.entry .tags button {
+	margin-right: 5px;
+	margin-bottom: 5px;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: darkred;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.entry .tags button:hover {
+	background-color: rgb(141, 61, 61);
+}
+
+.entry .view-ratings, .entry .add-rating {
+	margin-right: 5px;
+	margin-bottom: 5px;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: darkred;
+	color: #fff;
+	font-size: 16px
+}
+
+.entry .view-ratings:hover, .entry .add-rating:hover {
+	background-color: rgb(141, 61, 61);
+}
+
+
+.search-bar input[type="text"] {
+	width: 70%;
+	margin-left: 5px;
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	background-color: rgb(197, 129, 129);
+	color: #fff;
+}
+
+.search-bar button[type="submit"] {
+	padding: 5px 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: #ccc;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.search-bar button[type="submit"]:hover {
+	background-color: #aaa;
+}
+
+
+.newsfeed-page-button {
+	margin-left: 10px;
+	padding: 5px 5px;
+	border: none;
+	border-radius: 5px;
+	background-color: darkred;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.newsfeed-page-button:hover {
+	background-color: rgb(141, 61, 61);
+}
+
+.sort-by {
+	padding: 3px;
+	border: none;
+	border-radius: 5px;
+	background-color: darkred;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.sort-by:hover {
+	background-color: rgb(141, 61, 61);
+}
+
+.margin {
+	margin-top: 300px;
+}
+
+	#navbar {
+		overflow: hidden;
+		background-color: #333;
+	}
+
+	.sticky {
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
+
+	.sticky + .content {
+		padding-top: 60px;
+	}
+
+</style>
+<head>
+	<meta name="Bercovici Adrian" content="Things people dislike">
+	<title>Newsfeed</title>
+</head>
+<body>
+<div id="navbar">
+    <div class="red-bar">
+		<h1><b>Thanks, I hate it!</b></h1>
+		<p>logged in as: AdiBerco</p>
+	  </div>
+	  
+	  <div class="lighter-red-row">
+		<p><b>Category: Restaurants</b></p><button class="newsfeed-page-button">Hatescribe!</button>
+	  </div>
+	  <div class="lighter-red-row">
+		<p>If you're looking for a good place to eat, this is the opposite of that</p>
+	  </div>
+	  <div class="lighter-red-row">
+		<p><b>Most hated:	</b></p>
+		<select class="sort-by">
+			<option value="trending">Today</option>
+			<option value="all-time">This Week</option>
+			<option value="all-time">This Month</option>
+			<option value="all-time">This year</option>
+			<option value="all-time">Ever</option>
+		</select>
+	  </div>
+	  <div class="lighter-red-row">
+		<p><b>You hate something? Tell us all about it! </b></p>
+		<button class="newsfeed-page-button">I hate something!</button>
+	  </div>
+	  <div class="lighter-red-row">
+		<p><b>Looking for something? Let's look togheter!</b></p>
+		<div class="search-bar">
+			<input type="text" placeholder="Search...">
+			<button class="newsfeed-page-button">Go</button>
+		</div>
+	  </div>
+	  <div class="lighter-red-row">
+		<p><b>Your hatescriptions: </b></p>
+	  </div>
+
+	  <div class="scroll-box">
+		<button class="hatescribed-item">Animals</button>
+		<button class="hatescribed-item">Baby products</button>
+		<button class="hatescribed-item">Banks</button>
+		<button class="hatescribed-item">Beauty products</button>
+		<button class="hatescribed-item">Cars</button>
+		<button class="hatescribed-item">Car Dealers</button>
+		<button class="hatescribed-item">Convencience stores</button>
+		<button class="hatescribed-item">Clubs</button>
+		<button class="hatescribed-item">Chiropractictioners</button>
+		<button class="hatescribed-item">Dancing</button>
+		<button class="hatescribed-item">Dentists</button>
+		<button class="hatescribed-item">Doctors</button>
+		<button class="hatescribed-item">Dermatologists</button>
+		<button class="hatescribed-item">English phrases</button>
+		<button class="hatescribed-item">Endocrynoogists</button>
+		<button class="hatescribed-item">Football</button>
+		<button class="hatescribed-item">Finances</button>
+		<button class="hatescribed-item">Food</button>
+		<button class="hatescribed-item">Gas stations</button>
+		<button class="hatescribed-item">Gardening</button>
+		<button class="hatescribed-item">Hunting</button>
+		<button class="hatescribed-item">Lawyers</button>
+		<button class="hatescribed-item">Parking lots</button>
+		<button class="hatescribed-item">Public parks</button>
+		<button class="hatescribed-item">Restaurants</button>
+		<button class="hatescribed-item">Tennis</button>
+	  </div>
+</div>
+	<div class="container margin">
+			<div class="entry">
+				<div class="entry-image">
+					<img src="poze/kfc.png" alt="entry image">
+				</div>
+				<div class="entry-content">
+					<h2>KFC Iasi</h2>
+					<img src="poze/Swearing.png" alt="review icon">
+					<p class="rating">-4.5/-5 Absolutely desipciable</p>
+					<p class="comment"><b>Top Comment: </b> If someone points a gun at you and says: "Eat at KFC Iasi or I'll shoot you!" - just take the bullet. You have better odds of survival!</p>
+					<p>Tags: </p>
+					<div class="tags">
+						<button>Tag 1</button>
+						<button>Tag 2</button>
+						<button>Tag 3</button>
+						<button>Tag 4</button>
+						<button>Tag 5</button>
+					</div>
+					<p>Location: </p>
+					<div class="tags">
+						<button>Romania</button>
+						<button>Iasi</button>
+					</div>
+					<button class="view-ratings">View Ratings</button>
+					<button class="add-rating">Add Rating</button>
+				</div>
+			</div>
+			<!-- add more entries here -->
+			<div class="entry">
+				<div class="entry-image">
+					<img src="poze/mcdonalds.png" alt="entry image">
+				</div>
+				<div class="entry-content">
+					<h2>Mcdonalds Iasi</h2>
+					<img src="poze/Mad.png" alt="review icon">
+					<p class="rating">-3.5/-5 It's pain</p>
+					<p class="comment"><b>Top Comment: </b>I would sooner lick a dirty boot than eat here again!</p>
+					<p>Tags: </p>
+					<div class="tags">
+						<button>Tag 1</button>
+						<button>Tag 2</button>
+						<button>Tag 3</button>
+						<button>Tag 4</button>
+						<button>Tag 5</button>
+					</div>
+					<p>Location: </p>
+					<div class="tags">
+						<button>Romania</button>
+						<button>Iasi</button>
+					</div>
+					<button class="view-ratings">View Ratings</button>
+					<button class="add-rating">Add Rating</button>
+				</div>
+			</div>
+
+			<div class="entry">
+				<div class="entry-image">
+					<img src="poze/tacobell.png" alt="entry image">
+				</div>
+				<div class="entry-content">
+					<h2>Taco bell Iasi</h2>
+					<img src="poze/Angry.png" alt="review icon">
+					<p class="rating">-1.5/-5 Pretty annoying</p>
+					<p class="comment"><b>Top Comment: </b>Eat here at your own peril</p>
+					<p>Tags: </p>
+					<div class="tags">
+						<button>Tag 1</button>
+						<button>Tag 2</button>
+						<button>Tag 3</button>
+						<button>Tag 4</button>
+						<button>Tag 5</button>
+					</div>
+					<p>Location: </p>
+					<div class="tags">
+						<button>Romania</button>
+						<button>Iasi</button>
+					</div>
+					<button class="view-ratings">View Ratings</button>
+					<button class="add-rating">Add Rating</button>
+				</div>
+			</div>
+
+	</div>
+</body>
+<script>
+	window.onscroll = function() {myFunction()};
+
+	var navbar = document.getElementById("navbar");
+
+	var sticky = navbar.offsetTop;
+
+
+	function myFunction() {
+		if (window.pageYOffset >= sticky) {
+			navbar.classList.add("sticky")
+		} else {
+			navbar.classList.remove("sticky");
+		}
+	}
+</script>
+</html>
+
