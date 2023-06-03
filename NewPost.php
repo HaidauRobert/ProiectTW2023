@@ -1,3 +1,9 @@
+<?php
+session_start();
+include("connections.php");
+include("functions.php");
+$user_data = check_login($con);
+?>
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -10,13 +16,13 @@
 <body>
     <nav>
         <div class="logo">
-            <a href="newsfeed.html">
+            <a href="newsfeed.php">
                 <img src="poze/logo.png" alt="Logo">
             </a>
         </div>
         <div class="nav-buttons">
             <ul>
-                <li><a href="MyProfile.html">Profilul meu</a></li>
+                <li><a href="MyProfile.php">Profilul meu</a></li>
             </ul>
         </div>
     </nav>
