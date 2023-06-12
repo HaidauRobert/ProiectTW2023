@@ -1,0 +1,16 @@
+CREATE TABLE `web2023`.`items` (`item_id` INT NOT NULL , `item_name` VARCHAR(300) NOT NULL , 
+`top_1_class_id` INT NOT NULL , `top_2_class_id` INT NOT NULL , `top_3_class_id` INT NOT NULL , `top_4_class_id` INT NOT NULL , `top_5_class_id` INT NOT NULL , 
+`location_class_id` INT NOT NULL , PRIMARY KEY (`item_id`)) ENGINE = InnoDB;
+
+
+CREATE TABLE `web2023`.`classes` (`class_id` INT NOT NULL , `class_name` VARCHAR(300) NOT NULL , `is_aproved` BOOLEAN NOT NULL , PRIMARY KEY (`class_id`)) ENGINE = InnoDB;
+
+
+CREATE TABLE `web2023`.`reviews` (`review_id` INT NOT NULL , `review_date` DATETIME NOT NULL , `reviewer_user_id,` INT NOT NULL , 
+`reviewed_item_id` INT NOT NULL , `review_score` INT NOT NULL , `review_description` VARCHAR(1000) NOT NULL , 
+`class_id_1` INT NOT NULL , `class_id_2` INT NOT NULL , `class_id_3` INT NOT NULL , `class_id_4` INT NOT NULL , `class_id_5` INT NOT NULL , 
+`review_photo` LONGBLOB NOT NULL , PRIMARY KEY (`review_id`)) ENGINE = InnoDB;
+
+CREATE TABLE `web2023`.`likes` (`liker_user_id` INT NOT NULL , `liked_review_id` INT NOT NULL ) ENGINE = InnoDB;
+
+CREATE TABLE `web2023`.`subscriptions` (`subscriber_user_id` INT NOT NULL , `subscribed_class_id` INT NOT NULL ) ENGINE = InnoDB;
