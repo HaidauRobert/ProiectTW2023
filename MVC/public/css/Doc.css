@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    line-height: 150%;
+}
+body{
+    font-family:'Poppins', sans-serif;
+background: linear-gradient(to left,white, grey),white;
+background-position:center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+h1{
+    margin-top:1%;
+}
+section{
+    font-size: 150%;
+    margin-left: 3%;
+}
+ol {
+    font-size:150%;
+    margin-left:5%;
+    list-style:none;
+}
+ol ol{
+    font-size:75%;
+}
+ol img{
+    width:50%;
+}
+img{
+    margin: auto;
+    width:auto;
+    height: auto;
+}
+section ol{
+    font-size: 100%;
+    margin-left: 3%;
+}
