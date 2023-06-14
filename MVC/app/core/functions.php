@@ -10,11 +10,14 @@ function check_login($con)
         if ($result && mysqli_num_rows($result)>0)
         {
             $user_data = mysqli_fetch_assoc($result);
-            return $user_data;
+        }
+        else 
+        {
+            $user_data = 'Failed';
         }
     }
-    //redirect to login
-    header("Location: Login.php");
-    die;
+
+    $user_data = 'Failed';
+    return $user_data;
 }
 ?>

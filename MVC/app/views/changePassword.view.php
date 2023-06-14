@@ -1,19 +1,18 @@
 <?php
-session_start();
-include("connections.php");
-include("functions.php");
+$con = get_connection();
 $user_data = check_login($con);
 ?>
+
 <!DOCTYPE html>
 <head>
 <title>Change Password</title>
-<link rel="stylesheet" href="stylelogin.css">
+<link rel="stylesheet" href="<?php echo ROOT ?>/css/stylelogin.css">
 </head>
 <body> 
     <nav>
         <div class="logo">
             <a href="Home.php">
-                <img src="poze/logo.png" alt="Logo">
+                <img src="<?php echo ROOT ?>/poze/logo.png" alt="Logo">
             </a>
         </div>
         <div class="nav-buttons">

@@ -1,17 +1,17 @@
 <?php
-session_start();
-include("connections.php");
-include("functions.php");
+$con = get_connection();
+$user_data = check_login($con);
 ?>
+
 <!DOCTYPE html>
 <head>
 <title>I DisLike It</title>
-<link rel="stylesheet" href="stylelogin.css">
+<link rel="stylesheet" href="<?php echo ROOT ?>/css/stylelogin.css">
 </head>
 <body> 
     <nav>
         <div class="logo">
-                <img src="poze/logo.png" alt="Logo">
+                <img src="<?php echo ROOT ?>/poze/logo.png" alt="Logo">
         </div>
     </nav>
     <div class="login">

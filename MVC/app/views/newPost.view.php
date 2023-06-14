@@ -1,9 +1,8 @@
 <?php
-session_start();
-include("connections.php");
-include("functions.php");
+$con = get_connection();
 $user_data = check_login($con);
 ?>
+
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -11,13 +10,13 @@ $user_data = check_login($con);
         I Dislike It
     </title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="newpost.css">
+    <link rel="stylesheet" href="<?php echo ROOT ?>/css/newpost.css">
 </head>
 <body>
     <nav>
         <div class="logo">
             <a href="newsfeed.php">
-                <img src="poze/logo.png" alt="Logo">
+                <img src="<?php echo ROOT ?>/poze/logo.png" alt="Logo">
             </a>
         </div>
         <div class="nav-buttons">
@@ -33,23 +32,23 @@ $user_data = check_login($con);
                 <p> Cat de mult te enerveaza? </p>
                 <label>
                     <input type="radio" name="picture" value="1">
-                    <img src="poze/Swearing.png" alt="Emoji 1">
+                    <img src="<?php echo ROOT ?>/poze/Swearing.png" alt="Emoji 1">
                 </label>
                 <label>
                     <input type="radio" name="picture" value="2">
-                    <img src="poze/Rage.png" alt="Emoji 2">
+                    <img src="<?php echo ROOT ?>/poze/Rage.png" alt="Emoji 2">
                 </label>
                 <label>
                     <input type="radio" name="picture" value="3">
-                    <img src="poze/Mad.png" alt="Emoji 3">
+                    <img src="<?php echo ROOT ?>/poze/Mad.png" alt="Emoji 3">
                 </label>
                 <label>
                     <input type="radio" name="picture" value="4">
-                    <img src="poze/Angry.png" alt="Emoji 4">
+                    <img src="<?php echo ROOT ?>/poze/Angry.png" alt="Emoji 4">
                 </label>
                 <label>
                     <input type="radio" name="picture" value="5">
-                    <img src="poze/Offput.png" alt="Emoji 5">
+                    <img src="<?php echo ROOT ?>/poze/Offput.png" alt="Emoji 5">
                 </label>
             </div>
             <p> Povesteste si altora! </p>

@@ -1,19 +1,18 @@
 <?php
-session_start();
-include("connections.php");
-include("functions.php");
+$con = get_connection();
 $user_data = check_login($con);
 ?>
+
 <!DOCTYPE html>
 <head>
 <title>My Profile</title>
-<link rel="stylesheet" href="myprofile.css">
+<link rel="stylesheet" href="<?php echo ROOT ?>/css/myprofile.css">
 </head>
 <body> 
     <nav>
         <div class="logo">
             <a href="Home.php">
-                <img src="poze/logo.png" alt="Logo">
+                <img src="<?php echo ROOT ?>/poze/logo.png" alt="Logo">
             </a>
         </div>
         <div class="nav-buttons">
@@ -32,7 +31,7 @@ $user_data = check_login($con);
                 Your Profile Picture
             </h2>
             <br>
-            <img class="profil" src="poze/profil.jpeg"> <br>
+            <img class="profil" src="<?php echo ROOT ?>/poze/profil.jpeg"> <br>
           <input type="file" name="image" accept = ".jpg, .jpeg, .png" class="input">
           <br><br><input class="submit" type="submit" name="upload">
             </form>
