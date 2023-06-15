@@ -1,8 +1,3 @@
-<?php
-$con = get_connection();
-$user_data = check_login($con);
-?>
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -15,13 +10,13 @@ $user_data = check_login($con);
 <body>
     <nav>
         <div class="logo">
-            <a href="newsfeed.php">
+            <a href="home">
                 <img src="<?php echo ROOT ?>/poze/logo.png" alt="Logo">
             </a>
         </div>
         <div class="nav-buttons">
             <ul>
-                <li><a href="MyProfile.php">Profilul meu</a></li>
+                <li><a href="myprofile">Profilul meu</a></li>
             </ul>
         </div>
     </nav>

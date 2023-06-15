@@ -1,10 +1,9 @@
 <?php
-$con = get_connection();
-?>
-
-<?php
 if ($_SERVER['REQUEST_METHOD']=="POST")
 {
+    $m = new Model;
+    $con = $m->connection;
+
     //ceva a fost pus
     $user_name = $_POST['nume1'];
     $email = $_POST['email1'];
@@ -24,8 +23,10 @@ if ($_SERVER['REQUEST_METHOD']=="POST")
         //salveaza in baza de date
         $query="insert into Users (name,password,email) values ('$user_name','$password','$email')";
 
-      mysqli_query($con, $query);
-       header("Location: home.php");
+        mysqli_query($con, $query);
+        header("Location: http://localhost/ProiectTW2023/MVC/public/home");
+        $app = new App;
+        $app->loadController();
      die;
     }
     else
@@ -42,7 +43,9 @@ if ($_SERVER['REQUEST_METHOD']=="POST")
 <body> 
     <nav>
         <div class="logo">
+            <a href="home">
                 <img src="<?php echo ROOT ?>/poze/logo.png" alt="Logo">
+            </a>
         </div>
     </nav>
     <div class="login">
@@ -58,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST")
                 <input type="email" placeholder="Email" name="email1" class="input" required>
                 <input type="password" placeholder="Parola" name="parola1" class="input" required>
                 <input type="submit" value="Sign Up" class="inputSubmit">
-                <p class="message">Already have an account? <a href="Login.php">Login</a>
+                <p class="message">Already have an account? <a href="login">Login</a>
                 </p>
             </form>
         </div>

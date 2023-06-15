@@ -1,24 +1,14 @@
-<?php
-$con = get_connection();
-$user_data = check_login($con);
-?>
-
 <!DOCTYPE html>
 <head>
 <title>My Profile</title>
 <link rel="stylesheet" href="<?php echo ROOT ?>/css/myprofile.css">
 </head>
 <body> 
-    <nav>
+<nav>
         <div class="logo">
-            <a href="Home.php">
+            <a href="home">
                 <img src="<?php echo ROOT ?>/poze/logo.png" alt="Logo">
             </a>
-        </div>
-        <div class="nav-buttons">
-            <ul>
-                <li><a href="MyProfile.php">Profilul meu</a></li>
-            </ul>
         </div>
     </nav>
 <div class="container">

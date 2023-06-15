@@ -5,8 +5,8 @@ class Changepassword extends Controller {
         echo "This is the controller of the Change Password page.";
         
 
-        $con = get_connection();
-        if(check_login($con) == 'Failed') {
+        $m = new Model;
+        if(check_login($m->connection) == 'Failed') {
             $this->view('login');
         }
         else {

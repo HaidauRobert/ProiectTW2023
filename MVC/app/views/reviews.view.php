@@ -1,8 +1,3 @@
-<?php
-$con = get_connection();
-$user_data = check_login($con);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>

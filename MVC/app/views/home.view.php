@@ -1,8 +1,3 @@
-<?php
-$con = get_connection();
-$user_data = check_login($con);
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -120,7 +115,7 @@ $user_data = check_login($con);
   <div class="container">
     <div class="user-profile">
       <div class="profile-pic-container">
-        <img class="<?php echo ROOT ?>/profile-pic" src="knife cursor.png" alt="Profile Picture" />
+        <img class="profile-pic" src="<?php echo ROOT ?>/knife cursor.png" alt="Profile Picture" />
         <button class="newsfeed-page-button">Change Profile Picture</button>
       </div>
       <div class="user-info">

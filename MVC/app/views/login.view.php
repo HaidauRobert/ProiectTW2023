@@ -1,7 +1,6 @@
 <?php
-$con = get_connection();
-$user_data = check_login($con);
-require_once dirname(__FILE__). "/../models/model.php";
+$m = new Model;
+$user_data = check_login($m->connection);
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +11,9 @@ require_once dirname(__FILE__). "/../models/model.php";
 <body> 
     <nav>
         <div class="logo">
+            <a href="home">
                 <img src="<?php echo ROOT ?>/poze/logo.png" alt="Logo">
+            </a>
         </div>
     </nav>
     <div class="login">
@@ -29,7 +30,7 @@ require_once dirname(__FILE__). "/../models/model.php";
                     {
                         //citeste din baza de date
                         $query="select * from Users where name='$user_name' limit 1";
-                        $result = mysqli_query($con, $query);
+                        $result = mysqli_query($m->connection, $query);
                         if ($result)
                         {
                             if ($result && mysqli_num_rows($result)>0)
