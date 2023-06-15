@@ -1,3 +1,3 @@
 <?php
 
-define('ROOT', 'http://localhost/project/ProiectTW2023/MVC/public');
+define('ROOT', 'http://localhost/ProiectTW2023/MVC/public');

@@ -1,6 +1,5 @@
 <?php
 $con = get_connection();
-$user_data = check_login($con);
 ?>
 
 <?php
