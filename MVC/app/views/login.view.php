@@ -32,12 +32,15 @@ $m = new Model;
                         $result = mysqli_query($m->connection, $query);
                         if ($result)
                         {
+                            
                             if ($result && mysqli_num_rows($result)>0)
                             {
+                                
                                 $user_data = mysqli_fetch_assoc($result);
                                 if (password_verify($password,$user_data['password']))
                                 {
-                                    $_SESSION['user_id'] = $user_data['userid'];
+                                    $_SESSION['userid'] = $user_data['userid'];
+                                    $_SESSION['name'] = $user_data['name'];
                                     header("Location: http://localhost/ProiectTW2023/MVC/public/home");
                                     $app = new App;
                                     $app->loadController();
