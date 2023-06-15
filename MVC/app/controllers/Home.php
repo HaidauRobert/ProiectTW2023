@@ -1,12 +1,10 @@
 <?php
-
 class Home extends Controller {
     public function index() {
         echo "This is the controller of the Home page.";
-
-        $m = new Model;
-        print_r($m->connection);
-        if(check_login($m->connection) == 'Failed') {
+        $model = new Model();
+        
+        if(check_login($model->connection) == 'Failed') {
             $this->view('login');
         }
         else {
