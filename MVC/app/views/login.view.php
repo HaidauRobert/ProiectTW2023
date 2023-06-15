@@ -1,7 +1,7 @@
 <?php
 $con = get_connection();
 $user_data = check_login($con);
-require_once dirname(__FILE__). "/../models/model.php";
+require_once dirname(__FILE__). "/../models/NewsfeedModel.php";
 ?>
 
 <!DOCTYPE html>
@@ -59,8 +59,15 @@ require_once dirname(__FILE__). "/../models/model.php";
                 <input type="password" placeholder="Parola" name="parola1" class="input" required>
                 <input type="submit" value="Login" class="inputSubmit">
                 <p class="message">Don't have an account? <a href="signup">Sign up</a>
-                <?php  $m  = new Model(); $all_rows = $m->execute_query("select * from `classes`"); 
-                foreach ($all_rows as $row) echo $row[1].PHP_EOL #dbg lines?>
+                <?php  $m  = new NewsfeedModel(); echo $m->get_average_item_score(1); /*$all_rows = $m->get_all_item_reviews(1); 
+                foreach ($all_rows as $row) 
+                {
+                    echo $row[5]." - ";
+                    #echo $m->get_class_name_from_id($row[1])[0][1]."\r;";
+
+
+                 }*/
+                 ?>
                 </p>
             </form>
         </div>
