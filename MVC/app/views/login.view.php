@@ -37,7 +37,9 @@ $user_data = check_login($con);
                                 if (password_verify($password,$user_data['password']))
                                 {
                                     $_SESSION['user_id'] = $user_data['user_id'];
-                                    header("Location: home.php");
+                                    header("Location: http://localhost/ProiectTW2023/MVC/public/home");
+                                    $app = new App;
+                                    $app->loadController();
                                     die;
                                 }
                             }
@@ -55,7 +57,7 @@ $user_data = check_login($con);
                 <input type="text" placeholder="Nume utilizator" name="nume1" class="input" required>
                 <input type="password" placeholder="Parola" name="parola1" class="input" required>
                 <input type="submit" value="Login" class="inputSubmit">
-                <p class="message">Don't have an account? <a href="Signup.php">Sign up</a>
+                <p class="message">Don't have an account? <a href="signup">Sign up</a>
                 </p>
             </form>
         </div>
