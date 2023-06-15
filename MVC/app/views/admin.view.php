@@ -6,13 +6,13 @@
 <body>  
     <nav>
         <div class="logo">
-            <a href="Home.php">
+            <a href="home">
                 <img src="<?php echo ROOT ?>/poze/logo.png" alt="Logo">
             </a>
         </div>
         <div class="nav-buttons">
             <ul>
-                <li><a href="MyProfile.php">Profilul meu</a></li>
+                <li><a href="myprofile">Profilul meu</a></li>
             </ul>
         </div>
     </nav>
