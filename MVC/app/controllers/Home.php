@@ -4,10 +4,7 @@ class Home extends Controller {
         echo "This is the controller of the Home page.";
         $model = new Model();
         
-        if(check_login($model->connection) == 'Failed') {
-            $this->view('login');
-        }
-        else {
+        if(check_login($model->connection)) {
             $this->view('home');
         }
     }

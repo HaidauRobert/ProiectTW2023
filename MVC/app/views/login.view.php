@@ -40,6 +40,7 @@ $m = new Model;
                                 if (password_verify($password,$user_data['password']))
                                 {
                                     $_SESSION['userid'] = $user_data['userid'];
+                                    $_SESSION['name'] = $user_data['name'];
                                     header("Location: http://localhost/ProiectTW2023/MVC/public/home");
                                     $app = new App;
                                     $app->loadController();
