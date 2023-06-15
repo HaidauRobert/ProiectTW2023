@@ -1,6 +1,5 @@
 <?php
 $m = new Model;
-$user_data = check_login($m->connection);
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +28,7 @@ $user_data = check_login($m->connection);
                     if (!empty($user_name)&&!empty($password))
                     {
                         //citeste din baza de date
-                        $query="select * from Users where name='$user_name' limit 1";
+                        $query="select * from users where name='$user_name' limit 1";
                         $result = mysqli_query($m->connection, $query);
                         if ($result)
                         {
@@ -38,20 +37,22 @@ $user_data = check_login($m->connection);
                                 $user_data = mysqli_fetch_assoc($result);
                                 if (password_verify($password,$user_data['password']))
                                 {
-                                    $_SESSION['user_id'] = $user_data['user_id'];
+                                    $_SESSION['user_id'] = $user_data['userid'];
                                     header("Location: http://localhost/ProiectTW2023/MVC/public/home");
                                     $app = new App;
                                     $app->loadController();
-                                    die;
+                                }
+                                else 
+                                {
+                                    echo "Numele de utilizator si parola introdusa nu se potrivesc!";
                                 }
                             }
                         }
-                        echo "Numele de utilizator si parola introdusa nu se potrivesc!";
                       
                     }
                     else
                     {
-                        echo "Numele de utilizator si parola introdusa nu se potrivesc!";
+                        echo "Numele de utilizator nu exista in baza de date!";
                     }
                 }
                 ?>

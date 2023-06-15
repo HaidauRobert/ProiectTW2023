@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 function check_login($con)
 {
@@ -17,4 +17,4 @@ function check_login($con)
     $user_data = 'Failed';
     return $user_data;
 }
-?> -->
+?>
