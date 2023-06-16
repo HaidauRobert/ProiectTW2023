@@ -73,7 +73,7 @@
 						<button>Romania</button>
 						<button>Iasi</button>
 					</div>
-					<button class="view-ratings">View Ratings</button>
+					<button class="view-ratings"> <a href="Reviews">View Ratings</button>
 					<button class="add-rating">Add Rating</button>
 				</div>
 			</div>

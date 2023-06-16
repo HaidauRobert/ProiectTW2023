@@ -22,4 +22,31 @@ function check_login($con)
 
     
 }
+
+function get_emoji_path_from_score($review_value)
+{
+    $emoji_path = "";
+    if ($review_value == -5)
+    {
+        $emoji_path = ROOT."/poze/Swearing.png";
+    }
+    else if ($review_value == -4)
+    {
+        $emoji_path = ROOT."/poze/Rage.png";
+    }
+    else if ($review_value == -3)
+    {
+        $emoji_path = ROOT."/poze/Mad.png";
+    }
+    else if ($review_value == -2)
+    {
+        $emoji_path = ROOT."/poze/Angry.png";
+    }
+    else if ($review_value == -1)
+    {
+        $emoji_path = ROOT."/poze/Offput.png";
+    }
+
+    return $emoji_path;
+}
 ?>

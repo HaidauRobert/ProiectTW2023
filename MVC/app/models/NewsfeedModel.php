@@ -11,12 +11,6 @@
             return $this->execute_query($query);
         }
 
-        public function get_class_name_from_id($class_id)
-        {
-            $query = "SELECT * FROM classes WHERE class_id = ".$class_id;
-            return $this->execute_query($query);
-        }
-
         public function get_item_from_review_row($review_row)
         {
             $item_row = $this->execute_query("SELECT * FROM items WHERE item_id = ".$review_row[3]);
