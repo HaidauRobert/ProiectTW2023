@@ -19,6 +19,11 @@
 <div class="login">
     <div class="form">
     <form action="" method="post">
+    <div style="color:white; margin-bottom:2%">
+                <?php if (!empty($data['message'])) : ?>
+                    <div><?php echo $data['message']; ?></div>
+                <?php endif; ?>
+                </div>
                 <input type="password" name="parolaveche" placeholder="Parola veche" class="input" required>
 <br>
                 <input type="password" name="parolanoua" placeholder="Parola noua" class="input" required>

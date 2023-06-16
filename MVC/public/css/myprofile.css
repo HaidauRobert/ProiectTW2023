@@ -93,9 +93,9 @@ input{
     margin-top: 2%;
     background-color: darkred;
 }
-.submit{
+.submitclass{
     width:20%;
-    height: 25%;
+    height: 10%;
     border: 0;
     color: white;
     text-align: center;
