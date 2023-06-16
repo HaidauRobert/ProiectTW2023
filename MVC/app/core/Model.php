@@ -40,5 +40,4 @@ class Model
         $query = "SELECT * FROM users WHERE userid = ".$user_id;
         return $this->execute_query($query)[0][1];
     }
-
 }
