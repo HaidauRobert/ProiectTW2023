@@ -115,8 +115,11 @@
   <div class="container">
     <div class="user-profile">
       <div class="profile-pic-container">
-        <img class="profile-pic" src="<?php echo ROOT ?>/knife cursor.png" alt="Profile Picture" />
-        <button class="newsfeed-page-button">Change Profile Picture</button>
+        <?php if (!empty($data['profilePicture'])): ?>
+                        <img class="profile-pic" src="<?php echo ROOT ?>/poze/<?php echo $data['profilePicture']; ?>" alt="Profile Picture">
+                    <?php else: ?>
+                        <img class="profile-pic" src="<?php echo ROOT ?>/poze/profil.jpeg" alt="Default Profile Picture">
+                    <?php endif; ?>
       </div>
       <div class="user-info">
         <div class="username">John Doe</div>
