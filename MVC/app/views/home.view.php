@@ -132,7 +132,7 @@
       </div>
       <div class="buttons">
         <button class="newsfeed-page-button">I hate it!</button>
-        <button class="newsfeed-page-button">Newsfeed</button>
+        <button class="newsfeed-page-button"><a href="Newsfeed">Newsfeed</button>
         <button class="newsfeed-page-button">My Reviews</button>
       </div>
     </div>

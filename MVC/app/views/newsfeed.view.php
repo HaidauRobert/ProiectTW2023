@@ -44,32 +44,10 @@
 	  </div>
 
 	  <div class="scroll-box">
-		<button class="hatescribed-item">Animals</button>
-		<button class="hatescribed-item">Baby products</button>
-		<button class="hatescribed-item">Banks</button>
-		<button class="hatescribed-item">Beauty products</button>
-		<button class="hatescribed-item">Cars</button>
-		<button class="hatescribed-item">Car Dealers</button>
-		<button class="hatescribed-item">Convencience stores</button>
-		<button class="hatescribed-item">Clubs</button>
-		<button class="hatescribed-item">Chiropractictioners</button>
-		<button class="hatescribed-item">Dancing</button>
-		<button class="hatescribed-item">Dentists</button>
-		<button class="hatescribed-item">Doctors</button>
-		<button class="hatescribed-item">Dermatologists</button>
-		<button class="hatescribed-item">English phrases</button>
-		<button class="hatescribed-item">Endocrynoogists</button>
-		<button class="hatescribed-item">Football</button>
-		<button class="hatescribed-item">Finances</button>
-		<button class="hatescribed-item">Food</button>
-		<button class="hatescribed-item">Gas stations</button>
-		<button class="hatescribed-item">Gardening</button>
-		<button class="hatescribed-item">Hunting</button>
-		<button class="hatescribed-item">Lawyers</button>
-		<button class="hatescribed-item">Parking lots</button>
-		<button class="hatescribed-item">Public parks</button>
-		<button class="hatescribed-item">Restaurants</button>
-		<button class="hatescribed-item">Tennis</button>
+		<?php $user_subscriptions = $data['user_subscriptions'];
+		 foreach ($user_subscriptions as $subscription) {
+    		echo '<button class="hatescribed-item">' . $subscription. '</button>';
+		}?>
 	  </div>
 </div>
 	<div class="container margin">
