@@ -56,13 +56,13 @@
             </ul>
             <p> Unde se intampla? </p>
             <ul>
-                <li><input type="checkbox" id="choice4" name="choice" value="4"><label for="choice4">Iasi</label></li>
-                <li><input type="checkbox" id="choice5" name="choice" value="5"><label for="choice5"> Universitatea "Alexandru Ioan Cuza" </label></li>
-                <li><input type="checkbox" id="choice6" name="choice" value="6"><label for="choice6"> Romania </label></li>
+                <li><input type="checkbox" id="choice4" name="choice2" value="1"><label for="choice4">Iasi</label></li>
+                <li><input type="checkbox" id="choice5" name="choice2" value="2"><label for="choice5"> Universitatea "Alexandru Ioan Cuza" </label></li>
+                <li><input type="checkbox" id="choice6" name="choice2" value="3"><label for="choice6"> Romania </label></li>
             </ul>
             <p> O poza? </p>
             <div class="buton-poza">
-                <input type="file" id="post-picture">
+                <input type="file" id="post-picture" name="post-picture">
             </div>
             <input type="submit" value="Posteaza" class="inputSubmit">
         </form>
