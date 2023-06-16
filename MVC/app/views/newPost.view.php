@@ -21,8 +21,11 @@
         </div>
     </nav>
     <div class="new-post">
-        <form class="login-form" method="post">
+        <form class="login-form" method="post" enctype="multipart/form-data">
             <input type="text" placeholder="Nume" name="nume-obiect" class="input" required>
+            <?php if (!empty($data['emoji'])) : ?>
+                <div style="color: darkred; font-size: 20px; font-weight: bold; text-decoration: underline;";> <?php echo $data['emoji']; ?> </div>
+            <?php endif; ?>
             <div class="emojis">
                 <p> Cat de mult te enerveaza? </p>
                 <label>
@@ -48,21 +51,42 @@
             </div>
             <p> Povesteste si altora! </p>
             <textarea placeholder="Spune-ti oful" name="descriere-obiect" class="input" required></textarea>
+
+            <?php if (!empty($data['tags'])) : ?>
+                <div style="color: darkred; font-size: 20px; font-weight: bold; text-decoration: underline;";> <?php echo $data['tags']; ?> </div>
+            <?php endif; ?>
+
             <p> Ce fel de lucru e? </p>
             <ul>
-                <li><input type="checkbox" id="choice1" name="choice" value="1"><label for="choice1">Facultate</label></li>
-                <li><input type="checkbox" id="choice2" name="choice" value="2"><label for="choice2">Oameni</label></li>
-                <li><input type="checkbox" id="choice3" name="choice" value="3"><label for="choice3">Vreme</label></li>
+                <?php
+                    $tags_array = $data['all_tags'];
+                    foreach($tags_array as $tag) {
+                        foreach($tag as $tag_name) {
+                        echo '<li><input type="checkbox" name="choice[]" value="' . $tag_name . '">' . $tag_name . '</li>';
+                        }
+                    }
+                ?>
             </ul>
+
+            <?php if (!empty($data['location'])) : ?>
+                <div style="color: darkred; font-size: 20px; font-weight: bold; text-decoration: underline;";> <?php echo $data['location']; ?> </div>
+            <?php endif; ?>
+
             <p> Unde se intampla? </p>
             <ul>
-                <li><input type="checkbox" id="choice4" name="choice2" value="1"><label for="choice4">Iasi</label></li>
-                <li><input type="checkbox" id="choice5" name="choice2" value="2"><label for="choice5"> Universitatea "Alexandru Ioan Cuza" </label></li>
-                <li><input type="checkbox" id="choice6" name="choice2" value="3"><label for="choice6"> Romania </label></li>
+                <?php
+                    $locations_array = $data['all_locations'];
+                    foreach($locations_array as $location) {
+                        foreach($location as $location_name) {
+                        echo '<li><input type="checkbox" name="choice2[]" value="' . $location_name . '">' . $location_name . '</li>';
+                        }
+                    }
+                ?>
             </ul>
             <p> O poza? </p>
+
             <div class="buton-poza">
-                <input type="file" id="post-picture" name="post-picture">
+                <input type="file" id="post-picture" name="post-picture" required>
             </div>
             <input type="submit" value="Posteaza" class="inputSubmit">
         </form>
