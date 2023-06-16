@@ -28,7 +28,7 @@
             </div>  
             <br><br>
                <div class="changepass">
-                To change your password press <a href="ChangePassword.html"><b>here</b></a>
+                To change your password press <a href="ChangePassword"><b>here</b></a>
             </div>
         </div>
 	</div>

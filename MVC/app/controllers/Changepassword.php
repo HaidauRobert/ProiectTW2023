@@ -1,16 +1,37 @@
 <?php
-
+require_once __DIR__ . '/../models/ChangePasswordModel.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 class Changepassword extends Controller {
     public function index() {
         echo "This is the controller of the Change Password page.";
         
+        $model = new Model();
+        check_login($model->connection); 
+        $changePasswordModel = new ChangePasswordModel();
+        $data = array();
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $parolaveche = $_POST['parolaveche'];
+            $parolanoua = $_POST['parolanoua'];
+            $confirmareparola = $_POST['confirmaparola'];
+            $id = $_SESSION['userid'];
+            $user_data = $changePasswordModel->getUserData($id); 
+            if (!password_verify($parolaveche, $user_data['password'])) {
+                $data['message'] = "Parola veche introdusa nu se potriveste cu parola contului";
+                $this->view('changepassword', $data);
+                die;
+            } elseif ($parolanoua !== $confirmareparola) { 
+                $data['message'] = "Parola noua si parola noua confirmata nu sunt aceleasi";
+                $this->view('changepassword', $data);
+                die;
+            } else {
+                // All validations passed, update the password
+                $changePasswordModel->updatePassword($id, $parolanoua);
+                header("Location: Login");
+            }
+        }
 
-        $m = new Model;
-        if(check_login($m->connection) == 'Failed') {
-            $this->view('login');
-        }
-        else {
-            $this->view('changepassword');
-        }
+        $this->view('changepassword', $data);
+        
     }
 }
