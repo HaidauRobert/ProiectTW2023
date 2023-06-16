@@ -1,7 +1,7 @@
 <?php
 
 
-class Model
+class Modelel
 {
     #include dirname(__FILE__). "/../core/Database.php";
     #$connection;

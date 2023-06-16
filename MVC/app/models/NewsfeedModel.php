@@ -1,5 +1,5 @@
 <?php
-    require_once "model.php";
+    #require_once "model.php";
 
 
     class NewsfeedModel extends Model
@@ -54,6 +54,12 @@
             }
 
             return $all_reviews;
+        }
+
+        public function get_class_name_by_id($class_id)
+        {
+            $class_row = $this->execute_query("SELECT * FROM classes where class_id = ". $class_id);
+            return $class_row[0][1];
         }
         
     }
