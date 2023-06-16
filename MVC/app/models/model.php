@@ -90,4 +90,5 @@ class Model
 
         return $all_rows[$max_index][5];
     }
+
 }

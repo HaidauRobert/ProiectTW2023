@@ -1,7 +1,5 @@
 <?php
 require_once __DIR__ . '/../models/ChangePasswordModel.php';
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 class Changepassword extends Controller {
     public function index() {
         echo "This is the controller of the Change Password page.";
