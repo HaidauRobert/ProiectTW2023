@@ -110,7 +110,11 @@
   <body>
   <div class="red-bar">
     <h1><button class="logo-button"></button><b>Thanks, I hate it!</b></h1>
-    <p>logged in as: AdiBerco</p>
+    <p>logged in as: 
+    <?php if (!empty($data['name'])): ?>
+      <?php echo $data['name']; ?>
+      <?php endif; ?>
+    </p>
   </div>
   <div class="container">
     <div class="user-profile">

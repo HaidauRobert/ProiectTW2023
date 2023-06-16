@@ -14,6 +14,10 @@ class Home extends Controller {
         if ($profilePicture) {
             $data['profilePicture'] = $profilePicture;
         }
+        $name = $homeModel->getUserName($userId);
+        if ($name) {
+            $data['name'] = $name;
+        }
         
         $this->view('home', $data);
         
