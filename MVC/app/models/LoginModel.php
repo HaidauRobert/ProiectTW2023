@@ -12,7 +12,7 @@ class LoginModel extends Model {
                 return $user_data;
             }
         }
-
+        
         return null; 
     }
 }
