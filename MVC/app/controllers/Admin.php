@@ -4,14 +4,16 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 class Admin extends Controller {
     public function index() {
-        echo "This is the controller of the admin page.";
-
         $m = new Model;
         check_login($m->connection);
         $adminModel = new AdminModel();
         $data = array();
         $data['tables'] = $adminModel->getTables(); 
-
+        $userId = $_SESSION['userid'];
+        if (!$m->isAdmin($userId)) {
+            header("Location: home");
+            exit();
+        }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['addTag'])) {
                 $tagName = $_POST['tagName'];

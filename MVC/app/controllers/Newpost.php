@@ -40,10 +40,10 @@ class Newpost extends Controller {
         echo "This is the controller of the New Post page.";
 
         $newPostModel = new NewPostModel();
-        if(check_login($newPostModel->connection) == 'Failed') {
-            $this->view('login');
-        }
-        else {
+        check_login($newPostModel->connection) ;
+        $userId = $_SESSION['userid'];
+        if ($newPostModel->isAdmin($userId))
+            $data['admin'] = true;
             $all_tags = $newPostModel->getClasses();
             $all_locations = $newPostModel->getLocations();
             $data = array();
@@ -101,4 +101,3 @@ class Newpost extends Controller {
             $this->view('newpost', $data);
         }
     }
-}

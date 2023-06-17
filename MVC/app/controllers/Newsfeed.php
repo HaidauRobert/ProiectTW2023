@@ -14,7 +14,8 @@ class Newsfeed extends Controller {
 
         $userId = $_SESSION['userid'];
         check_login($model->connection);
-
+        if ($model->isAdmin($userId))
+            $data['admin'] = true;
         $user_subscriptions = $model->get_user_subscriptions($userId);#indexies of classes a user has subscribed to
 
         $subscriptions_class_names = array();

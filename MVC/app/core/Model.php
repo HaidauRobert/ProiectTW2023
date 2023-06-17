@@ -40,4 +40,16 @@ class Model
         $query = "SELECT * FROM users WHERE userid = ".$user_id;
         return $this->execute_query($query)[0][1];
     }
+    function isAdmin($userId) {
+        $query = "SELECT isadmin FROM users WHERE userid = ?";
+        $statement = $this->connection->prepare($query);
+        $statement->bind_param("i", $userId);
+        $statement->execute();
+        $statement->bind_result($isAdmin);
+        $statement->fetch();
+        $statement->close();
+        
+        return $isAdmin === 1;
+    }
+    
 }

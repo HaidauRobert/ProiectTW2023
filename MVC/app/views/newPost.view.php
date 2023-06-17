@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<?php echo ROOT ?>/css/newpost.css">
 </head>
 <body>
-    <nav>
+<nav>
         <div class="logo">
             <a href="home">
                 <img src="<?php echo ROOT ?>/poze/logo.png" alt="Logo">
@@ -16,10 +16,15 @@
         </div>
         <div class="nav-buttons">
             <ul>
-                <li><a href="myprofile">Profilul meu</a></li>
+              <li><a href="home">Home</a></li>
+                <li><a href="myprofile">My Profile</a></li>
+                <?php if (!empty($data['admin'])): ?>
+                <li><a href="admin">Admin Panel</a></li>
+                <?php endif; ?>
+                <li><a href="newsfeed">Newsfeed</a></li>
             </ul>
         </div>
-    </nav>
+  </nav>
     <div class="new-post">
         <form class="login-form" method="post" enctype="multipart/form-data">
             <input type="text" placeholder="Nume" name="nume-obiect" class="input" required>

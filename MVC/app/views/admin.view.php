@@ -3,8 +3,7 @@
 <title>I DisLike It</title>
 <link rel="stylesheet" href="<?php echo ROOT ?>/css/admin.css">
 </head>
-<body>  
-    <nav>
+<nav>
         <div class="logo">
             <a href="home">
                 <img src="<?php echo ROOT ?>/poze/logo.png" alt="Logo">
@@ -12,10 +11,13 @@
         </div>
         <div class="nav-buttons">
             <ul>
-                <li><a href="myprofile">Profilul meu</a></li>
+              <li><a href="home">Home</a></li>
+                <li><a href="myprofile">My Profile</a></li>
+                <li><a href="newsfeed">Newsfeed</a></li>
             </ul>
         </div>
-    </nav>
+  </nav>
+<body>  
 <div class="container">
         <div class="card">
             <b><h1 class="panel-text">Admin Panel</h1></b>

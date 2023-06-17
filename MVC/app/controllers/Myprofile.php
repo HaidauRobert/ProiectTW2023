@@ -4,13 +4,13 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 class Myprofile extends Controller {
     public function index() {
-        echo "This is the controller of the My Profile page.";
-
         $model = new Model();
         check_login($model->connection); 
         $MyProfileModel = new MyProfileModel();
         $data = array();
         $userId = $_SESSION['userid'];
+        if ($model->isAdmin($userId))
+            $data['admin'] = true;
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             $image = time() . '_' . $_FILES['image']['name'];
             $target = __DIR__ . '/../../public/poze/' . $image;

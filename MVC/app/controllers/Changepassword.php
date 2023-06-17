@@ -1,13 +1,14 @@
 <?php
 require_once __DIR__ . '/../models/ChangePasswordModel.php';
 class Changepassword extends Controller {
-    public function index() {
-        echo "This is the controller of the Change Password page.";
-        
+    public function index() {        
         $model = new Model();
         check_login($model->connection); 
         $changePasswordModel = new ChangePasswordModel();
         $data = array();
+        $userId = $_SESSION['userid'];
+        if ($model->isAdmin($userId))
+            $data['admin'] = true;
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $parolaveche = $_POST['parolaveche'];
             $parolanoua = $_POST['parolanoua'];

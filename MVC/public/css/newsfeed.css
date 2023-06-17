@@ -8,6 +8,47 @@ body {
         margin: 0;
 }
 
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(56, 0, 0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-buttons ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  
+}
+
+.nav-buttons ul li {
+  margin: 0 15px;
+  display: inline;
+}
+
+  
+  .nav-buttons a {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 17;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
 .scroll-box {
 	background-color: rgb(41, 0, 0);
   display: flex;
