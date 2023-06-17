@@ -50,10 +50,52 @@
             return $all_reviews;
         }
 
+        public function get_items_of_class($class_id)
+        {
+            $query = "SELECT * FROM items";
+
+            $all_items = $this->execute_query($query);
+
+            $class_items = array();
+
+            foreach ($all_items as $item_row)
+            {
+                for ($j = 2; $j <= 7; $j++ )
+                {
+                    if ($item_row[$j] == $class_id)
+                    {
+                        $class_items[count($class_items)] = $item_row;
+                        break;
+                    }
+                }
+            }
+
+            return $class_items;
+        }
+
         public function get_class_name_by_id($class_id)
         {
             $class_row = $this->execute_query("SELECT * FROM classes where class_id = ". $class_id);
             return $class_row[0][1];
+        }
+
+        public function get_average_item_score($item_id)
+        {
+            $all_rows = $this->get_all_item_reviews($item_id);
+
+            if (count($all_rows) == 0)
+                return 0;
+    
+            $avg = 0.0;
+            $count = 0.0;
+    
+            foreach ($all_rows as $row)
+            {
+                $avg = $avg + $row[4];
+                $count = $count + 1;
+            }
+    
+            return $avg / $count;
         }
         
     }

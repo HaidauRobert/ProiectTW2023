@@ -13,10 +13,11 @@
 	  </div>
 	  
 	  <div class="lighter-red-row">
-		<p><b>Category: Restaurants</b></p><button class="newsfeed-page-button">Hatescribe!</button>
-	  </div>
-	  <div class="lighter-red-row">
-		<p>If you're looking for a good place to eat, this is the opposite of that</p>
+		<p><b>Category: <?php echo $data['selected_category_name']?></b></p>
+		<?php $is_subbed = "Subscribe!";
+		if ($data['user_is_subbed'] == 1)
+			$is_subbed = "Un-subscribe!";
+		echo '<button class="newsfeed-page-button">'.$is_subbed.'</button>'?>
 	  </div>
 	  <div class="lighter-red-row">
 		<p><b>Most hated:	</b></p>
@@ -51,86 +52,42 @@
 	  </div>
 </div>
 	<div class="container margin">
-			<div class="entry">
-				<div class="entry-image">
-					<img src="<?php echo ROOT ?>/poze/kfc.png" alt="entry image">
-				</div>
-				<div class="entry-content">
-					<h2>KFC Iasi</h2>
-					<img src="<?php echo ROOT ?>/poze/Swearing.png" alt="review icon">
-					<p class="rating">-4.5/-5 Absolutely desipciable</p>
-					<p class="comment"><b>Top Comment: </b> If someone points a gun at you and says: "Eat at KFC Iasi or I'll shoot you!" - just take the bullet. You have better odds of survival!</p>
-					<p>Tags: </p>
-					<div class="tags">
-						<button>Tag 1</button>
-						<button>Tag 2</button>
-						<button>Tag 3</button>
-						<button>Tag 4</button>
-						<button>Tag 5</button>
-					</div>
-					<p>Location: </p>
-					<div class="tags">
-						<button>Romania</button>
-						<button>Iasi</button>
-					</div>
-					<button class="view-ratings"> <a href="Reviews">View Ratings</button>
-					<button class="add-rating">Add Rating</button>
-				</div>
-			</div>
-			<!-- add more entries here -->
-			<div class="entry">
-				<div class="entry-image">
-					<img src="<?php echo ROOT ?>/poze/mcdonalds.png" alt="entry image">
-				</div>
-				<div class="entry-content">
-					<h2>Mcdonalds Iasi</h2>
-					<img src="<?php echo ROOT ?>/poze/Mad.png" alt="review icon">
-					<p class="rating">-3.5/-5 It's pain</p>
-					<p class="comment"><b>Top Comment: </b>I would sooner lick a dirty boot than eat here again!</p>
-					<p>Tags: </p>
-					<div class="tags">
-						<button>Tag 1</button>
-						<button>Tag 2</button>
-						<button>Tag 3</button>
-						<button>Tag 4</button>
-						<button>Tag 5</button>
-					</div>
-					<p>Location: </p>
-					<div class="tags">
-						<button>Romania</button>
-						<button>Iasi</button>
-					</div>
-					<button class="view-ratings">View Ratings</button>
-					<button class="add-rating">Add Rating</button>
-				</div>
-			</div>
+			<?php $items_from_selected_class = $data['items_from_selected_class'];
 
-			<div class="entry">
-				<div class="entry-image">
-					<img src="<?php echo ROOT ?>/poze/tacobell.png" alt="entry image">
-				</div>
-				<div class="entry-content">
-					<h2>Taco bell Iasi</h2>
-					<img src="<?php echo ROOT ?>/poze/Angry.png" alt="review icon">
-					<p class="rating">-1.5/-5 Pretty annoying</p>
-					<p class="comment"><b>Top Comment: </b>Eat here at your own peril</p>
-					<p>Tags: </p>
-					<div class="tags">
-						<button>Tag 1</button>
-						<button>Tag 2</button>
-						<button>Tag 3</button>
-						<button>Tag 4</button>
-						<button>Tag 5</button>
+
+			for ($i = 0; $i < count($items_from_selected_class); $i++)
+			{
+				$item_average_rating =  get_average_review_comment($data['average_rating'][$i])." (".$data['item_total_reviews'][$i]." reviews)";
+				$emoji_path = get_emoji_path_from_score(round($data['average_rating'][$i]));
+				$i_top_classes = $data['top_classes'][$i];
+				echo 			
+				'<div class="entry">
+					<div class="entry-image">
+						<img src="<?php echo ROOT ?>/poze/kfc.png" alt="entry image">
 					</div>
-					<p>Location: </p>
-					<div class="tags">
-						<button>Romania</button>
-						<button>Iasi</button>
+					<div class="entry-content">
+						<h2>'.$items_from_selected_class[$i][1].'</h2>
+						<img src="'.$emoji_path.'" alt="review icon">
+						<p class="rating">'.$item_average_rating.'</p>
+						<p class="comment"><b>Top Comment: </b>'.$data['most_liked_review'][$i][5].'</p>
+						<p>Tags: </p>
+						<div class="tags">';
+
+						foreach ($i_top_classes as $tag)
+							echo "<button>".$tag."</button>";
+
+						echo '</div>
+						<p>Location: </p>
+						<div class="tags">
+							<button>'.$data['locations'][$i].'</button>
+						</div>
+						<button class="view-ratings"> View Ratings</button>
+						<button class="add-rating">Add Rating</button>
 					</div>
-					<button class="view-ratings">View Ratings</button>
-					<button class="add-rating">Add Rating</button>
-				</div>
-			</div>
+				</div>';
+			}
+
+			?>
 
 	</div>
 	<script src="newsfeed.js"></script>
