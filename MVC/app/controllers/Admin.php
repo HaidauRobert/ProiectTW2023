@@ -11,7 +11,11 @@ class Admin extends Controller {
         $adminModel = new AdminModel();
         $data = array();
         $data['tables'] = $adminModel->getTables(); 
-
+        $userId = $_SESSION['userid'];
+        if (!$m->isAdmin($userId)) {
+            header("Location: home");
+            exit();
+        }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['addTag'])) {
                 $tagName = $_POST['tagName'];

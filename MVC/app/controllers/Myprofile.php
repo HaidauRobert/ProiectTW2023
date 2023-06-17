@@ -11,6 +11,8 @@ class Myprofile extends Controller {
         $MyProfileModel = new MyProfileModel();
         $data = array();
         $userId = $_SESSION['userid'];
+        if ($model->isAdmin($userId))
+            $data['admin'] = true;
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
             $image = time() . '_' . $_FILES['image']['name'];
             $target = __DIR__ . '/../../public/poze/' . $image;

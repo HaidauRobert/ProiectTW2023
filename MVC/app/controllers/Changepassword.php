@@ -8,6 +8,9 @@ class Changepassword extends Controller {
         check_login($model->connection); 
         $changePasswordModel = new ChangePasswordModel();
         $data = array();
+        $userId = $_SESSION['userid'];
+        if ($model->isAdmin($userId))
+            $data['admin'] = true;
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $parolaveche = $_POST['parolaveche'];
             $parolanoua = $_POST['parolanoua'];

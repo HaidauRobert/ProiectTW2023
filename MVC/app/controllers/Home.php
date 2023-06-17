@@ -9,6 +9,8 @@ class Home extends Controller {
         $data = array();
         $homeModel = new HomeModel();
         $userId = $_SESSION['userid'];
+        if ($model->isAdmin($userId))
+            $data['admin'] = true;
         check_login($model->connection);
         $profilePicture = $homeModel->getProfilePicture($userId);
         if ($profilePicture) {

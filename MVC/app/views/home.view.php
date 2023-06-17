@@ -27,6 +27,47 @@
         border: 1px solid black;
         padding: 20px;
       }
+      
+      nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(56, 0, 0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-buttons ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  
+}
+
+.nav-buttons ul li {
+  margin: 0 15px;
+  display: inline;
+}
+
+  
+  .nav-buttons a {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 17;
+  }
+
+  .logo img {
+    height: 50px;
+  }
 
       /* profile picture and change button container */
       .profile-pic-container {
@@ -108,14 +149,24 @@
     </style>
   </head>
   <body>
-  <div class="red-bar">
-    <h1><button class="logo-button"></button><b>Thanks, I hate it!</b></h1>
-    <p>logged in as: 
-    <?php if (!empty($data['name'])): ?>
-      <?php echo $data['name']; ?>
-      <?php endif; ?>
+  <nav>
+        <div class="logo">
+            <a href="home">
+                <img src="<?php echo ROOT ?>/poze/logo.png" alt="Logo">
+            </a>
+        </div>
+        <div class="nav-buttons">
+            <ul>
+              <li><a href="home">Home</a></li>
+                <li><a href="myprofile">My Profile</a></li>
+                <?php if (!empty($data['admin'])): ?>
+                <li><a href="admin">Admin Panel</a></li>
+                <?php endif; ?>
+                <li><a href="newsfeed">Newsfeed</a></li>
+            </ul>
+        </div>
+  </nav>
     </p>
-  </div>
   <div class="container">
     <div class="user-profile">
       <div class="profile-pic-container">
@@ -126,7 +177,9 @@
                     <?php endif; ?>
       </div>
       <div class="user-info">
-        <div class="username">John Doe</div>
+        <div class="username">  <?php if (!empty($data['name'])): ?>
+                                <?php echo $data['name']; ?>
+                                <?php endif; ?></div>
         <div class="reputation"><b>Reputation:</b> 100</div>
         <div class="reviews">Reviews: 50</div>
       </div>
