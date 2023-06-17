@@ -89,18 +89,19 @@
       .user-info {
         text-align: center;
         margin-top: 20px;
+        color:white;
       }
 
       /* username */
       .username {
-        font-size: 24px;
+        font-size: 250%;
         font-weight: bold;
       }
 
       /* reputation and reviews */
       .reputation,
       .reviews {
-        font-size: 18px;
+        font-size: 200%;
         margin-top: 10px;
       }
 
@@ -120,7 +121,7 @@
 	        border-radius: 5px;
 	        background-color: rgb(75, 27, 27);
 	        color: #fff;
-	        font-size: 16px;
+	        font-size: 35px;
 	        cursor: pointer;
         }
 
@@ -180,13 +181,10 @@
         <div class="username">  <?php if (!empty($data['name'])): ?>
                                 <?php echo $data['name']; ?>
                                 <?php endif; ?></div>
-        <div class="reputation"><b>Reputation:</b> 100</div>
         <div class="reviews">Reviews: 50</div>
       </div>
       <div class="buttons">
-        <button class="newsfeed-page-button">I hate it!</button>
-        <button class="newsfeed-page-button"><a href="Newsfeed">Newsfeed</button>
-        <button class="newsfeed-page-button">My Reviews</button>
+      <a href="newpost"><button class="newsfeed-page-button">I hate it!</button></a>
       </div>
     </div>
   </div>

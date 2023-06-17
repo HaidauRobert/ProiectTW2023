@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../models/SignupModel.php';
 class Signup extends Controller {
     public function index() {
-        echo "This is the controller of the Signup page.";
         $signupModel = new SignupModel();
         $data = array();
         if ($_SERVER['REQUEST_METHOD'] == "POST") {

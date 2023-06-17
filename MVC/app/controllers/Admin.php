@@ -4,8 +4,6 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 class Admin extends Controller {
     public function index() {
-        echo "This is the controller of the admin page.";
-
         $m = new Model;
         check_login($m->connection);
         $adminModel = new AdminModel();

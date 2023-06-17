@@ -4,7 +4,6 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 class Home extends Controller {
     public function index() {
-        echo "This is the controller of the Home page.";
         $model = new Model();
         $data = array();
         $homeModel = new HomeModel();

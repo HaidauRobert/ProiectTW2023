@@ -4,8 +4,6 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 class Myprofile extends Controller {
     public function index() {
-        echo "This is the controller of the My Profile page.";
-
         $model = new Model();
         check_login($model->connection); 
         $MyProfileModel = new MyProfileModel();
