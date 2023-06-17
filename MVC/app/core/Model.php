@@ -51,5 +51,11 @@ class Model
         
         return $isAdmin === 1;
     }
+    public function logout() {
+        session_start();
+        session_destroy();
+        header("Location: login");
+        exit();
+    }
     
 }

@@ -20,6 +20,7 @@
                 <li><a href="admin">Admin Panel</a></li>
                 <?php endif; ?>
                 <li><a href="newsfeed">Newsfeed</a></li>
+				<li><a href="logout">Logout</a></li>
             </ul>
         </div>
   </nav>
