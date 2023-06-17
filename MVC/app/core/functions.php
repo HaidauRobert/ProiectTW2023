@@ -49,4 +49,20 @@ function get_emoji_path_from_score($review_value)
 
     return $emoji_path;
 }
+
+function get_average_review_comment($average_review)
+{
+    $review = "";
+
+    if ($average_review < -4)
+        $review = "".$average_review." / -5 - absoltely despicable";
+    else if ($average_review < -3)
+        $review = "".$average_review." / -5 - nasty";
+    else if ($average_review < -2)
+        $review = "".$average_review." / -5 - try to avoid";
+    else
+        $review = "".$average_review." / -5 - meh";
+
+    return $review;
+}
 ?>

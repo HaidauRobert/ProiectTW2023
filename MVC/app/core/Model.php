@@ -40,6 +40,54 @@ class Model
         $query = "SELECT * FROM users WHERE userid = ".$user_id;
         return $this->execute_query($query)[0][1];
     }
+
+    public function get_review_like_count($review_id)
+    {
+        $query = "SELECT * FROM likes WHERE liked_review_id = ".$review_id;
+        $all_rows = $this->execute_query($query);
+        return count($all_rows);
+    }
+
+    public function get_most_liked_review_of_item($item_id)
+    {
+        $all_rows = $this->get_all_item_reviews($item_id);
+
+        if (count($all_rows) == 0)
+            return NULL;
+
+        $max_likes = 0; $max_index = 0; $current_index = 0;
+
+        foreach ($all_rows as $row)
+        {
+            $current_likes = $this->get_review_like_count($row[0]);
+
+            if ($current_likes >= $max_likes)
+            {
+                $max_likes = $current_likes;
+                $max_index = $current_index;
+
+            }
+            $current_index = $current_index + 1;
+        }
+
+        return $all_rows[$max_index];
+    }
+
+    public function get_item_total_reviews($item_id)
+    {
+        $query = "SELECT * FROM reviews WHERE reviewed_item_id = ".$item_id;
+        $all_item_reviews = $this->execute_query($query);
+        return count($all_item_reviews);
+    }
+
+    public function get_user_is_subscribed_to_class($user_id, $class_id)
+    {
+        $query = "SELECT * FROM subscriptions where subscriber_user_id = ".$user_id." and subscribed_class_id = ".$class_id;
+        $all_results = $this->execute_query($query);
+        if (count($all_results) > 0)
+            return 1;
+        return 0;
+    }
     function isAdmin($userId) {
         $query = "SELECT isadmin FROM users WHERE userid = ?";
         $statement = $this->connection->prepare($query);
