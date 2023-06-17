@@ -30,7 +30,7 @@
                     <h2>Your Profile Picture</h2>
                     <br>
                     <?php if (!empty($data['profilePicture'])): ?>
-                        <img class="profil" src="<?php echo ROOT ?>/poze/<?php echo $data['profilePicture']; ?>" alt="Profile Picture">
+                        <img class="profil" src="<?php echo ROOT ?>/poze/<?php echo $data['profilePicture']; ?>" alt="<?php echo ROOT ?>/poze/profil.jpeg">
                     <?php else: ?>
                         <img class="profil" src="<?php echo ROOT ?>/poze/profil.jpeg" alt="Default Profile Picture">
                     <?php endif; ?>

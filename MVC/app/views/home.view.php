@@ -172,7 +172,7 @@
     <div class="user-profile">
       <div class="profile-pic-container">
         <?php if (!empty($data['profilePicture'])): ?>
-                        <img class="profile-pic" src="<?php echo ROOT ?>/poze/<?php echo $data['profilePicture']; ?>" alt="Profile Picture">
+                        <img class="profile-pic" src="<?php echo ROOT ?>/poze/<?php echo $data['profilePicture']; ?>" alt="<?php echo ROOT ?>/poze/profil.jpeg">
                     <?php else: ?>
                         <img class="profile-pic" src="<?php echo ROOT ?>/poze/profil.jpeg" alt="Default Profile Picture">
                     <?php endif; ?>
