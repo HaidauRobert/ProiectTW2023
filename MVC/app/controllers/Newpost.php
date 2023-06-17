@@ -21,14 +21,16 @@ class Newpost extends Controller {
         arsort($number_of_tags);
         $top6Tags = array_slice(array_keys($number_of_tags), 0, 6);
 
-        foreach($top6Tags as $tag) {
-            if($tag == -1) {
-                $tag = $top6Tags['5'];
+        if($top6Tags[5] != -1) {
+            foreach($top6Tags as &$tag) {
+                if($tag == -1) {
+                    $tag = $top6Tags[5];
+                }
             }
         }
+        unset($tag);
 
-        $top5Tags = array_slice(array_keys($top6Tags), 0, 5);
-        print_r($top5Tags);
+        $top5Tags = array_slice($top6Tags, 0, 5);
         return $top5Tags;
     }
 
@@ -71,7 +73,8 @@ class Newpost extends Controller {
                 $annoyanceLevel = $_POST['picture']; 
                 $descriere = $_POST['descriere-obiect'];
                 $tags_clicked = $_POST['choice'];
-                $locations = $_POST['choice2'];
+                $location_name = $_POST['choice2'];
+                $location = $newPostModel->getLocationClassId($location_name[0]);
 
                 if (isset($_FILES['post-picture'])) {
                     $image = time() . '_' . $_FILES['post-picture']['name'];
@@ -85,17 +88,45 @@ class Newpost extends Controller {
 
                 $curr_date = date("Y-m-d");
             
-                $item_id = $newPostModel->getItemId($nume);
+                $item_id_array = $newPostModel->getItemId($nume);
+
                 for($i = 0; $i < count($tags_clicked); $i ++) {
                     $tag_id = $newPostModel->getClassId($tags_clicked[$i]);
                     $tags_clicked[$i] = $tag_id["class_id"];
                 }
 
-                $tags_array = $newPostModel->getTagsItem($item_id["item_id"]);
+                $item_id_final;
+                if($item_id_array) {
+                    $check = 0;
+                    foreach($item_id_array as $item_id) {
+                        $db_location = $newPostModel->getLocationByID($item_id);
 
-                print_r($this->getTop5Tags($tags_array));
+                        if($location["location_id"] == $db_location["location_class_id"]) {
 
-                // $newPostModel->postReview($curr_date, $_SESSION['userid'], $item_id["item_id"], $annoyanceLevel, $descriere, $tags_clicked, $image);
+                            $all_tags_array = $newPostModel->getTagsItem($item_id);
+                            array_push($all_tags_array, $tags_clicked);
+
+                            $top5Tags = $this->getTop5Tags($all_tags_array);
+
+                            $newPostModel->updateItem($item_id, $top5Tags);
+                            $item_id_final = $item_id;
+                            $check = 1;
+                        }
+                    }
+                    if($check == 0) {
+                        $newPostModel->postItem($nume, $tags_clicked, $location);
+                        $item_id_final_array = $newPostModel->getItemIdLoc($nume, $location);
+                        $item_id_final = $item_id_final_array[0];
+                    }
+                }
+                else {
+                    $newPostModel->postItem($nume, $tags_clicked, $location);
+                    $item_id_final_array = $newPostModel->getItemIdLoc($nume, $location);
+                    $item_id_final = $item_id_final_array[0];
+                }
+
+                print_r($item_id_final);
+                $newPostModel->postReview($curr_date, $_SESSION['userid'], $item_id_final, $annoyanceLevel, $descriere, $tags_clicked, $image);
             }
 
             $this->view('newpost', $data);
