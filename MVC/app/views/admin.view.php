@@ -35,6 +35,14 @@
                         <p><?php echo $data['removeTagMessage']; ?></p>
                     <?php endif; ?>
             </div>
+            <div class="tags-section">
+                <h3>Tags:</h3>
+                <ul>
+                    <?php foreach ($data['tags'] as $tag) : ?>
+                        <li>Tag ID: <?php echo $tag['class_id']; ?>, Tag Name: <?php echo $tag['class_name']; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
             <div class="export-data">
                 <h3>Select the table you want to export, then choose the format and click the Export button to download it</h3>
                 <form action="" method="POST">

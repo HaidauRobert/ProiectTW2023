@@ -122,6 +122,15 @@ select {
 .button:hover {
     background-color: red;
 }
+.tags-section {
+    overflow-y: auto;
+    max-height: 200px;
+
+}
+.tags-section ul {
+  align-items: center;
+  list-style-type: none;
+}
 
 /* Responsive design for large devices */
 @media (min-width: 992px) and (max-width: 1199px) {
