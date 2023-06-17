@@ -15,7 +15,8 @@ class Reviews extends Controller {
         $userId = $_SESSION['userid'];
 
         check_login($model->connection);
-        
+        if ($model->isAdmin($userId))
+            $data['admin'] = true;
         $selected_item_id = 1;
 
         $selected_item_reviews = $model->get_all_item_reviews($selected_item_id);

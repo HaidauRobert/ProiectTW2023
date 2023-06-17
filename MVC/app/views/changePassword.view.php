@@ -12,10 +12,15 @@
         </div>
         <div class="nav-buttons">
             <ul>
-                <li><a href="myprofile">Profilul meu</a></li>
+              <li><a href="home">Home</a></li>
+                <li><a href="myprofile">My Profile</a></li>
+                <?php if (!empty($data['admin'])): ?>
+                <li><a href="admin">Admin Panel</a></li>
+                <?php endif; ?>
+                <li><a href="newsfeed">Newsfeed</a></li>
             </ul>
         </div>
-    </nav>
+  </nav>
 <div class="login">
     <div class="form">
     <form action="" method="post">

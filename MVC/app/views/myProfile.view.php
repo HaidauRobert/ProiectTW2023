@@ -4,13 +4,23 @@
     <link rel="stylesheet" href="<?php echo ROOT ?>/css/myprofile.css">
 </head>
 <body> 
-    <nav>
+<nav>
         <div class="logo">
             <a href="home">
                 <img src="<?php echo ROOT ?>/poze/logo.png" alt="Logo">
             </a>
         </div>
-    </nav>
+        <div class="nav-buttons">
+            <ul>
+              <li><a href="home">Home</a></li>
+                <li><a href="myprofile">My Profile</a></li>
+                <?php if (!empty($data['admin'])): ?>
+                <li><a href="admin">Admin Panel</a></li>
+                <?php endif; ?>
+                <li><a href="newsfeed">Newsfeed</a></li>
+            </ul>
+        </div>
+  </nav>
     <div class="container">
         <div class="card">
             <div class="text">
@@ -20,7 +30,7 @@
                     <h2>Your Profile Picture</h2>
                     <br>
                     <?php if (!empty($data['profilePicture'])): ?>
-                        <img class="profil" src="<?php echo ROOT ?>/poze/<?php echo $data['profilePicture']; ?>" alt="Profile Picture">
+                        <img class="profil" src="<?php echo ROOT ?>/poze/<?php echo $data['profilePicture']; ?>" alt="<?php echo ROOT ?>/poze/profil.jpeg">
                     <?php else: ?>
                         <img class="profil" src="<?php echo ROOT ?>/poze/profil.jpeg" alt="Default Profile Picture">
                     <?php endif; ?>

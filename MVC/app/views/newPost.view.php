@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<?php echo ROOT ?>/css/newpost.css">
 </head>
 <body>
-    <nav>
+<nav>
         <div class="logo">
             <a href="home">
                 <img src="<?php echo ROOT ?>/poze/logo.png" alt="Logo">
@@ -16,10 +16,15 @@
         </div>
         <div class="nav-buttons">
             <ul>
-                <li><a href="myprofile">Profilul meu</a></li>
+              <li><a href="home">Home</a></li>
+                <li><a href="myprofile">My Profile</a></li>
+                <?php if (!empty($data['admin'])): ?>
+                <li><a href="admin">Admin Panel</a></li>
+                <?php endif; ?>
+                <li><a href="newsfeed">Newsfeed</a></li>
             </ul>
         </div>
-    </nav>
+  </nav>
     <div class="new-post">
         <form class="login-form" method="post" enctype="multipart/form-data">
             <input type="text" placeholder="Nume" name="nume-obiect" class="input" required>
@@ -29,23 +34,23 @@
             <div class="emojis">
                 <p> Cat de mult te enerveaza? </p>
                 <label>
-                    <input type="radio" name="picture" value="1">
+                    <input type="radio" name="picture" value="-5">
                     <img src="<?php echo ROOT ?>/poze/Swearing.png" alt="Emoji 1">
                 </label>
                 <label>
-                    <input type="radio" name="picture" value="2">
+                    <input type="radio" name="picture" value="-4">
                     <img src="<?php echo ROOT ?>/poze/Rage.png" alt="Emoji 2">
                 </label>
                 <label>
-                    <input type="radio" name="picture" value="3">
+                    <input type="radio" name="picture" value="-3">
                     <img src="<?php echo ROOT ?>/poze/Mad.png" alt="Emoji 3">
                 </label>
                 <label>
-                    <input type="radio" name="picture" value="4">
+                    <input type="radio" name="picture" value="-2">
                     <img src="<?php echo ROOT ?>/poze/Angry.png" alt="Emoji 4">
                 </label>
                 <label>
-                    <input type="radio" name="picture" value="5">
+                    <input type="radio" name="picture" value="-1">
                     <img src="<?php echo ROOT ?>/poze/Offput.png" alt="Emoji 5">
                 </label>
             </div>
@@ -78,7 +83,7 @@
                     $locations_array = $data['all_locations'];
                     foreach($locations_array as $location) {
                         foreach($location as $location_name) {
-                        echo '<li><input type="checkbox" name="choice2[]" value="' . $location_name . '">' . $location_name . '</li>';
+                        echo '<li><input type="radio" name="choice2[]" value="' . $location_name . '">' . $location_name . '</li>';
                         }
                     }
                 ?>

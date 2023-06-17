@@ -6,12 +6,24 @@
 		<link rel="stylesheet" href="<?php echo ROOT ?>/css/newsfeed.css">
 	</head>
 <body>
+<nav>
+        <div class="logo">
+            <a href="home">
+                <img src="<?php echo ROOT ?>/poze/logo.png" alt="Logo">
+            </a>
+        </div>
+        <div class="nav-buttons">
+            <ul>
+              <li><a href="home">Home</a></li>
+                <li><a href="myprofile">My Profile</a></li>
+                <?php if (!empty($data['admin'])): ?>
+                <li><a href="admin">Admin Panel</a></li>
+                <?php endif; ?>
+                <li><a href="newsfeed">Newsfeed</a></li>
+            </ul>
+        </div>
+  </nav>
 <div id="navbar">
-    <div class="red-bar">
-		<h1><b>Thanks, I hate it!</b></h1>
-		<p>logged in as: AdiBerco</p>
-	  </div>
-	  
 	  <div class="lighter-red-row">
 		<p><b>Category: <?php echo $data['selected_category_name']?></b></p>
 		<?php $is_subbed = "Subscribe!";

@@ -88,8 +88,6 @@ class AdminModel extends Model {
         }
     }
     
-    
-    
     public function getTables() {
         $query = "SHOW TABLES";
         $result = $this->connection->query($query);
@@ -103,4 +101,20 @@ class AdminModel extends Model {
 
         return $tables;
     }
+
+    public function getTags() {
+        $query = "SELECT class_id, class_name FROM classes";
+        $result = $this->connection->query($query);
+    
+        $tags = array();
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $tags[] = $row;
+            }
+        }
+    
+        return $tags;
+    }
+    
+    
 }

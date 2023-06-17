@@ -18,7 +18,7 @@ class NewPostModel extends Model {
         return $rows;
     }
 
-    public function getItem($name) {
+    public function getItemId($name) {
         $query = "SELECT item_id FROM items WHERE item_name='$name' LIMIT 1";
         $result = mysqli_query($this->connection, $query);
         $item_id = mysqli_fetch_assoc($result);
@@ -33,14 +33,21 @@ class NewPostModel extends Model {
     }
 
     public function postReview($curr_date, $user_id, $item_id, $score, $descr, $tags, $photo) {
-        $class_1 = $tags["0"] ?? "no_tag";
-        $class_2 = $tags["1"] ?? "no_tag";
-        $class_3 = $tags["2"] ?? "no_tag";
-        $class_4 = $tags["3"] ?? "no_tag";
-        $class_5 = $tags["4"] ?? "no_tag";
+        $class_1 = $tags["0"] ?? "-1";
+        $class_2 = $tags["1"] ?? "-1";
+        $class_3 = $tags["2"] ?? "-1";
+        $class_4 = $tags["3"] ?? "-1";
+        $class_5 = $tags["4"] ?? "-1";
 
         $query = "INSERT INTO reviews (review_date, reviewer_user_id, reviewed_item_id, review_score, review_description, class_id_1, class_id_2, class_id_3, class_id_4, class_id_5, review_photo) 
             VALUES ('$curr_date', '$user_id', '$item_id', '$score', '$descr', '$class_1', '$class_2', '$class_3', '$class_4', '$class_5', '$photo')";
         mysqli_query($this->connection, $query);
+    }
+
+    public function getTagsItem($ID) {
+        $query = "SELECT class_id_1, class_id_2, class_id_3, class_id_4, class_id_5 FROM reviews WHERE reviewed_item_id='$ID'";
+        $result = mysqli_query($this->connection, $query);
+        $rows = mysqli_fetch_all($result);
+        return $rows;
     }
 }

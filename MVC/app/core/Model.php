@@ -88,4 +88,16 @@ class Model
             return 1;
         return 0;
     }
+    function isAdmin($userId) {
+        $query = "SELECT isadmin FROM users WHERE userid = ?";
+        $statement = $this->connection->prepare($query);
+        $statement->bind_param("i", $userId);
+        $statement->execute();
+        $statement->bind_result($isAdmin);
+        $statement->fetch();
+        $statement->close();
+        
+        return $isAdmin === 1;
+    }
+    
 }

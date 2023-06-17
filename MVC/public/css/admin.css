@@ -22,16 +22,20 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: auto;
   }
   
   .nav-buttons ul {
-    list-style-type: none;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  
 }
 
-  .nav-buttons ul li {
-    margin: 0 10px;
-  }
+.nav-buttons ul li {
+  margin: 0 15px;
+  display: inline;
+}
+
   
   .nav-buttons a {
     color: red;
@@ -39,7 +43,7 @@ nav {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 14px;
+    font-size: 17;
   }
 
   .logo img {
@@ -117,6 +121,15 @@ select {
 
 .button:hover {
     background-color: red;
+}
+.tags-section {
+    overflow-y: auto;
+    max-height: 200px;
+
+}
+.tags-section ul {
+  align-items: center;
+  list-style-type: none;
 }
 
 /* Responsive design for large devices */
