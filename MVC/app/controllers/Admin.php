@@ -46,12 +46,12 @@ class Admin extends Controller {
                 } else {
                     $tableName = $_POST['databaseSelect'];
                     $adminModel->exportTableAsJSON($tableName);
-                    $data['jsonDone'] = __DIR__ . '/../../public/csv/' . $tableName. '.csv';
-                }
+                    $data['jsonDone'] = __DIR__ . '/../../public/json/' . $tableName. '.json';
+                } 
             }
             
         }
-
+        $data['tags'] = $adminModel->getTags();
         $this->view('admin', $data);
     }
 }

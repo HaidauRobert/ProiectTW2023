@@ -14,6 +14,7 @@
               <li><a href="home">Home</a></li>
                 <li><a href="myprofile">My Profile</a></li>
                 <li><a href="newsfeed">Newsfeed</a></li>
+                <li><a href="logout">Logout</a></li>
             </ul>
         </div>
   </nav>
@@ -34,6 +35,14 @@
                     <?php if (!empty($data['removeTagMessage'])): ?>
                         <p><?php echo $data['removeTagMessage']; ?></p>
                     <?php endif; ?>
+            </div>
+            <div class="tags-section">
+                <h3>Tags:</h3>
+                <ul>
+                    <?php foreach ($data['tags'] as $tag) : ?>
+                        <li>Tag ID: <?php echo $tag['class_id']; ?>, Tag Name: <?php echo $tag['class_name']; ?></li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
             <div class="export-data">
                 <h3>Select the table you want to export, then choose the format and click the Export button to download it</h3>
