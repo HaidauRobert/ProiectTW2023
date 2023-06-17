@@ -165,7 +165,6 @@
                 <?php endif; ?>
                 <li><a href="newsfeed">Newsfeed</a></li>
                 <li><a href="logout">Logout</a></li>
-
             </ul>
         </div>
   </nav>
