@@ -27,20 +27,25 @@
 <div id="navbar">
 	  <div class="lighter-red-row">
 		<p><b>Category: <?php echo $data['selected_category_name']?></b></p>
-		<?php $is_subbed = "Subscribe!";
+		<?php
 		if ($data['user_is_subbed'] == 1)
-			$is_subbed = "Un-subscribe!";
-		echo '<button class="newsfeed-page-button">'.$is_subbed.'</button>'?>
+			echo '<form method="post"><button class="newsfeed-page-button type="submit" name="unsubscribe" value="'.$data['selected_category_name'].'">Un-subscribe!</button></form>';
+		else
+			echo '<form method="post"><button class="newsfeed-page-button type="submit" name="subscribe" value="'.$data['selected_category_name'].'">Subscribe!</button></form>'?>
 	  </div>
 	  <div class="lighter-red-row">
-		<p><b>Most hated:	</b></p>
-		<select class="sort-by">
-			<option value="trending">Today</option>
-			<option value="all-time">This Week</option>
-			<option value="all-time">This Month</option>
-			<option value="all-time">This year</option>
-			<option value="all-time">Ever</option>
-		</select>
+		<p><b>All categories:	</b></p>
+		<form method="post">
+			<select class="sort-by" name="go_to_class" onchange="this.form.submit()">
+				<option value="-1">-</option>;
+				<?php 
+				foreach ($data['all_classes'] as $cl)
+					echo '<option value="'.$cl[0].'">'.$cl[1].'</option>'?>
+			</select>
+			<noscript>
+				<input type="submit" value="Submit">
+			</noscript>
+		</form>
 	  </div>
 	  <div class="lighter-red-row">
 		<p><b>You hate something? Tell us all about it! </b></p>
@@ -89,12 +94,12 @@
 						<div class="tags">';
 
 						foreach ($i_top_classes as $tag)
-							echo "<button>".$tag."</button>";
+							echo '<form method="post"><button type="submit" name="go_to_hatescription" value= "'.$tag.'">'.$tag."</button></form>";
 
 						echo '</div>
 						<p>Location: </p>
 						<div class="tags">
-							<button>'.$data['locations'][$i].'</button>
+							<form method="post"><button type="submit" name="go_to_hatescription" value= "'.$data['locations'][$i].'">'.$data['locations'][$i].'</button></form>
 						</div>
 						<button class="view-ratings"> View Ratings</button>
 						<button class="add-rating">Add Rating</button>

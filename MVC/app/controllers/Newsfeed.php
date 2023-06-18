@@ -14,13 +14,15 @@ class Newsfeed extends Controller {
 
         $userId = $_SESSION['userid'];
 
+        $all_classes = $model->execute_query("SELECT * FROM classes");
+
         if (isset($_SESSION['selected_class']))
         {
             $selected_class = $_SESSION['selected_class'];
         }
         else
         {
-            $selected_class = 1;
+            $selected_class = $all_classes[0][0];
         }
 
         check_login($model->connection);
@@ -91,6 +93,8 @@ class Newsfeed extends Controller {
             $item_total_reviews[$i] = $model->get_item_total_reviews($class_items[$i][0]);
         }
 
+        $data['all_classes'] = $all_classes;
+
         $data['most_liked_review'] = $most_liked_review;
 
         $data['selected_category_name'] = $model->get_class_name_from_id($selected_class);
@@ -106,6 +110,29 @@ class Newsfeed extends Controller {
                 $_SESSION['selected_class'] = $model->get_class_id_by_name($pressedButton);
 
                 header("Location: http://localhost/ProiectTW2023/MVC/public/newsfeed");
+            }
+
+            if (isset($_POST['unsubscribe'])) {
+                #$target_class = $_POST['unsubscribe'];
+                #$target_class_id = $model->get_class_id_by_name($target_class);
+                $model->unsubscribe_to_class($userId, $selected_class);
+                header("Location: http://localhost/ProiectTW2023/MVC/public/newsfeed");
+            }
+
+            if (isset($_POST['subscribe'])) {
+                #$target_class = $_POST['subscribe'];
+                #$target_class_id = $model->get_class_id_by_name($target_class);
+                $model->subscribe_to_class($userId, $selected_class);
+                header("Location: http://localhost/ProiectTW2023/MVC/public/newsfeed");
+            }
+
+            if (isset($_POST['go_to_class'])) {
+                $target_class = $_POST['go_to_class'];
+                if ($target_class != -1)
+                {
+                    $_SESSION['selected_class'] = $target_class;//$model->get_class_id_by_name($pressedButton);
+                    header("Location: http://localhost/ProiectTW2023/MVC/public/newsfeed");
+                }
             }
         }
 

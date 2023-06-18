@@ -23,6 +23,11 @@ class Model
         return $all_rows;
     }
 
+    public function execute_query_without_fetch($query_string)
+    {
+        mysqli_query($this->connection, $query_string);
+    }
+
     public function get_all_item_reviews($item_id)
     {
         $query = "SELECT * FROM reviews WHERE reviewed_item_id = ".$item_id;

@@ -105,5 +105,20 @@
     
             return $avg / $count;
         }
+
+
+        public function subscribe_to_class($user_id, $class_id)
+        {
+            $query = "INSERT into subscriptions (subscriber_user_id, subscribed_class_id) VALUES ('$user_id', '$class_id')";
+            $this->execute_query_without_fetch($query);
+        }
+
+        public function unsubscribe_to_class($user_id, $class_id)
+        {
+            $query = 'DELETE FROM subscriptions WHERE subscriber_user_id = '.$user_id.' and subscribed_class_id = '.$class_id;
+            #$query = "INSERT into subscriptions (subscriber_user_id, subscribed_class_id) VALUES ('$user_id', '$class_id')";
+            #$query = 'UPDATE subscriptions SET user_id = -1 WHERE  (subscriber_user_id = '.$user_id.' and subscribed_class_id = '.$class_id.')';
+            $this->execute_query_without_fetch($query);
+        }
         
     }
