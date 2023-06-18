@@ -9,51 +9,44 @@ class Newpost extends Controller {
 
         foreach($tags_array as $tags_row) {
             foreach($tags_row as $tag) {
-                if(isset($number_of_tags[$tag])) {
-                    $number_of_tags[$tag] ++;
-                }
-                else {
-                    $number_of_tags[$tag] = 1;
+                if($tag != -1) {
+                    if(isset($number_of_tags[$tag])) {
+                        $number_of_tags[$tag] ++;
+                    }
+                    else {
+                        $number_of_tags[$tag] = 1;
+                    }
                 }
             }
         }
 
         arsort($number_of_tags);
-        $top6Tags = array_slice(array_keys($number_of_tags), 0, 6);
-
-        if($top6Tags[5] != -1) {
-            foreach($top6Tags as &$tag) {
-                if($tag == -1) {
-                    $tag = $top6Tags[5];
-                }
-            }
-        }
-        unset($tag);
-
-        $top5Tags = array_slice($top6Tags, 0, 5);
+        $top5Tags = array_slice(array_keys($number_of_tags), 0, 5);
         return $top5Tags;
     }
 
     public function index() {
-
-        ini_set('display_errors', 1);
-        error_reporting(E_ALL);
-
-        echo "This is the controller of the New Post page.";
 
         $newPostModel = new NewPostModel();
         check_login($newPostModel->connection) ;
         $userId = $_SESSION['userid'];
         if ($newPostModel->isAdmin($userId))
             $data['admin'] = true;
-            $all_tags = $newPostModel->getClasses();
-            $all_locations = $newPostModel->getLocations();
-            $data = array();
-            $data['all_tags'] = $all_tags;
-            $data['all_locations'] = $all_locations;
+        $all_tags = $newPostModel->getClasses();
+        $all_locations = $newPostModel->getLocations();
+        $data = array();
+        $data['all_tags'] = $all_tags;
+        $data['all_locations'] = $all_locations;
 
-            if ($_SERVER['REQUEST_METHOD']=="POST")
-            {
+        if ($_SERVER['REQUEST_METHOD']=="POST")
+        {
+            if(isset($_POST['preset_name']) && isset($_POST['preset_location'])) {
+                $preset_name = $_POST['preset_name'];
+                $data['preset_name'] = $preset_name;
+                $preset_location = $_POST['preset_location'];
+                $data['preset_location'] = $preset_location;
+            }
+            else {
                 $nume = $_POST['nume-obiect'];
                 if(empty($_POST['picture'])){
                     $data['emoji'] = "Selecteaza cat a fost de rau.";
@@ -101,7 +94,7 @@ class Newpost extends Controller {
                     foreach($item_id_array as $item_id) {
                         $db_location = $newPostModel->getLocationByID($item_id);
 
-                        if($location["location_id"] == $db_location["location_class_id"]) {
+                        if($location["class_id"] == $db_location["location_class_id"]) {
 
                             $all_tags_array = $newPostModel->getTagsItem($item_id);
                             array_push($all_tags_array, $tags_clicked);
@@ -124,11 +117,10 @@ class Newpost extends Controller {
                     $item_id_final_array = $newPostModel->getItemIdLoc($nume, $location);
                     $item_id_final = $item_id_final_array[0];
                 }
-
-                print_r($item_id_final);
                 $newPostModel->postReview($curr_date, $_SESSION['userid'], $item_id_final, $annoyanceLevel, $descriere, $tags_clicked, $image);
             }
-
-            $this->view('newpost', $data);
         }
+
+        $this->view('newpost', $data);
     }
+}

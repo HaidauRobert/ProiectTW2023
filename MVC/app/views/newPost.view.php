@@ -28,7 +28,11 @@
   </nav>
     <div class="new-post">
         <form class="login-form" method="post" enctype="multipart/form-data">
-            <input type="text" placeholder="Nume" name="nume-obiect" class="input" required>
+            <?php if (!empty($data['preset_name'])) : ?>
+                <input type="text" name="nume-obiect" class="input" value="<?php echo $data['preset_name']; ?>" required>
+            <?php else : ?>
+                <input type="text" placeholder="Nume" name="nume-obiect" class="input" required>
+            <?php endif; ?>
             <?php if (!empty($data['emoji'])) : ?>
                 <div style="color: darkred; font-size: 20px; font-weight: bold; text-decoration: underline;";> <?php echo $data['emoji']; ?> </div>
             <?php endif; ?>
@@ -80,14 +84,28 @@
 
             <p> Unde se intampla? </p>
             <ul>
-                <?php
+                <?php if (!empty($data['preset_location'])) : ?>
+                    <?php
+                    $locations_array = $data['all_locations'];
+                    foreach($locations_array as $location) {
+                        foreach($location as $location_name) {
+                            if ($data["preset_location"] === $location_name)
+                                echo '<li><input type="radio" name="choice2[]" value="' . $location_name . '" checked>' . $location_name . '</li>';
+                            else
+                                echo '<li><input type="radio" name="choice2[]" value="' . $location_name . '" >' . $location_name . '</li>';
+                        }
+                    }
+                    ?>
+                <?php else : ?>
+                    <?php
                     $locations_array = $data['all_locations'];
                     foreach($locations_array as $location) {
                         foreach($location as $location_name) {
                         echo '<li><input type="radio" name="choice2[]" value="' . $location_name . '">' . $location_name . '</li>';
                         }
                     }
-                ?>
+                    ?>
+                <?php endif; ?>
             </ul>
             <p> O poza? </p>
 

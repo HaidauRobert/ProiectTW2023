@@ -27,7 +27,7 @@ class NewPostModel extends Model {
     }
 
     public function getItemIdLoc($name, $location) {
-        $location_id = $location["location_id"];
+        $location_id = $location["class_id"];
 
         $query = "SELECT item_id FROM items WHERE item_name='$name' AND location_class_id='$location_id'";
         $result = mysqli_query($this->connection, $query);
@@ -44,7 +44,16 @@ class NewPostModel extends Model {
     }
 
     public function getLocationClassID($location) {
-        $query = "SELECT location_id FROM classes c JOIN locations l ON c.class_id = l.class_id WHERE c.class_name ='$location'";
+        $query = "SELECT c.class_id FROM classes c JOIN locations l ON c.class_id = l.class_id WHERE c.class_name ='$location'";
+        $result = mysqli_query($this->connection, $query);
+        $location_id = mysqli_fetch_assoc($result);
+        return $location_id;
+    }
+
+    public function getLocationIdByClassId($class_array) {
+        $class_id = $class_array["class_id"] ?? -1;
+
+        $query = "SELECT location_id FROM locations WHERE class_id ='$class_id'";
         $result = mysqli_query($this->connection, $query);
         $location_id = mysqli_fetch_assoc($result);
         return $location_id;
@@ -82,7 +91,7 @@ class NewPostModel extends Model {
         $topClass_3 = $tags["2"] ?? "-1";
         $topClass_4 = $tags["3"] ?? "-1";
         $topClass_5 = $tags["4"] ?? "-1";
-        $location_id = $location["location_id"] ?? -1;
+        $location_id = $location["class_id"] ?? -1;
 
         $query = "INSERT INTO items (item_name, top_1_class_id, top_2_class_id, top_3_class_id, top_4_class_id, top_5_class_id, location_class_id) 
             VALUES ('$name', '$topClass_1', '$topClass_2', '$topClass_3', '$topClass_4', '$topClass_5', '$location_id')";

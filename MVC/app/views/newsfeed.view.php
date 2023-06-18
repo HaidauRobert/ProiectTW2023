@@ -91,7 +91,11 @@
 							<form method="post"><button type="submit" name="go_to_hatescription" value= "'.$data['locations'][$i].'">'.$data['locations'][$i].'</button></form>
 						</div>
 						<form method="post"><button class="view-ratings" name="view_ratings" value= "'.$items_from_selected_class[$i][0].'"> View Ratings</button></form>
-						<button class="add-rating">Add Rating</button>
+						<form action="../public/newpost" method="post">
+							<input type="hidden" name="preset_name" value="'.$items_from_selected_class[$i][1].'">
+							<input type="hidden" name="preset_location" value="'.$data['locations'][$i].'">
+							<button type="submit" class="add-rating">Add Rating</button>
+						</form>
 					</div>
 				</div>';
 			}
