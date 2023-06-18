@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8">
         <title> I Dislike It </title>
-        <link rel="stylesheet" href="Doc.css">
+        <link rel="stylesheet" href="css/Doc.css">
     </head>
     <body>
         <section>
@@ -105,6 +105,7 @@
                         </li>
                      </ol>
                 </li>
+                
                 <li>
                     <a href="#nonfunctional"> 5. Other Nonfunctional Requirements </a>
                      <ol>
@@ -124,6 +125,12 @@
                             5.5 Business Rules
                         </li>
                      </ol>
+                </li>
+                <li>
+                    <a href="#diagram"> 6. Diagrams </a>
+                </li>
+                <li>
+                    <a href="#arhitecture"> 7. MVC Arhitecture </a>
                 </li>
             </ol>
         </section>
@@ -450,6 +457,123 @@
                 <p>
                     No business rules as of yet.
                 </p>
+            </section>
+        </article>
+        <br>
+        <article id="diagram">
+            <h2> 6. Diagrams </h2>
+            <section>
+                <h3>
+                    6.1 C4 context Diagram
+                </h3>
+                <p>
+                    <img src="poze/C4 diagram.png">
+                </p>
+            </section>
+            <section>
+                <h3>
+                    6.2 C4 component Diagram
+                </h3>
+                <p>
+                    <img src="poze/C4 component.png">
+                </p>
+            </section>
+            <section>
+                <h3>
+                    6.3 Class Diagram
+                </h3>
+                <p>
+                    <img src="poze/web class diagram.png">
+                </p>
+            </section>
+            <section>
+                <h3>
+                    6.4 Use Case Diagram
+                </h3>
+                <p>
+                    <img src="poze/Use Case Diagram.png">
+                </p>
+            </section>
+        </article>
+        <br>
+        <article id="arhitecture">
+            <h2> 7. MVC Structure </h2>
+            <section>
+                <pre>
+            MVC
+            └───app
+            |    │  
+            |    │   
+            |    │
+            |    ├───controllers
+            |    │       |  _404.php
+            |    │       |  Admin.php
+            |    │       |  ChangePassword.php
+            |    │       |  Home.php
+            |    │       |  Login.php
+            |    │       |  logout.php
+            |    │       |  Myprofile.php
+            |    │       |  Newpost.php
+            |    │       |  Reviews.php
+            |    |       |  Signup.php
+            |    │
+            |    ├───models
+            |    │      |   AdminModel.php
+            |    │      |   ChangePasswordModel.php
+            |    │      |   HomeModel.php
+            |    │      |   LoginModel.php
+            |    │      |   model.php
+            |    │      |   MyProfileModel.php
+            |    │      |   NewPostModel.php
+            |    │      |   NewsfeedModel.php
+            |    │      |   ReviewsModel.php
+            |    │      |   SignUpModel.php
+            |    │
+            |    ├───core
+            |    │   │   App.php
+            |    │   │   config.php
+            |    │   │   connections.php
+            |    │   │   Controller.php
+            |    │   │   Database.php
+            |    |   |   functions.php
+            |    |   |   init.php
+            |    |   |   Model.php
+            |    │   
+            |    │
+            |    └───views
+            |        │   404.view.php
+            |        │   admin.view.php
+            |        │   changePassword.view.php
+            |        │   home.view.php
+            |        │   login.view.php
+            |        │   myProfile.view.php
+            |        │   newPost.view.php
+            |        │   newsfeed.view.php
+            |        │   reviews.view.php
+            |        │   signup.view.php
+            |        
+            └───public
+                    |
+                    └───css
+                    |    │   admin.css
+                    |    │   Doc.css
+                    |    │   myprofile.css
+                    |    │   newpost.css
+                    |    │   newsfeed.css
+                    |    │   reviews.css
+                    |    │   stylelogin.css
+                    |
+                    └───csv
+                    |
+                    └───json
+                    |
+                    |
+                    └───poze
+                    |
+                    |
+                    └───index.php
+
+                            </pre>
             </section>
         </article>
     </body>

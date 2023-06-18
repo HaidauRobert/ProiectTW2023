@@ -23,3 +23,9 @@ CREATE TABLE `web2023`.`users` (
   `image` BLOB,
   PRIMARY KEY (`userid`)
 ) ENGINE = InnoDB;
+
+CREATE TABLE 'web2023'.'locations' (
+  'location_id' INT NOT NULL AUTO_INCREMENT,
+  'class_id' INT NOT NULL
+   PRIMARY KEY (`location_id`)
+) ENGINE = InnoDB;
