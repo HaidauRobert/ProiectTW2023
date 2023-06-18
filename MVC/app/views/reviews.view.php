@@ -39,12 +39,12 @@
 		<?php $top_tags = $data['top_tags'];
 		foreach ($top_tags as $tag)
 		{
-			echo '<button class="newsfeed-page-button">'.$tag.'</button>';
+			echo '<form method="post"><button class="newsfeed-page-button" type="submit" name="go_to_hatescription" value="'.$tag.'">'.$tag.'</button></form>';
 		}?>
 
 	  </div>
 	  <div class="lighter-red-row">
-		<p><b>Location</b></p><button class="newsfeed-page-button"><?php echo $data['location_tag']?></button>
+		<p><b>Location</b></p> <?php $location = $data['location_tag']; echo '<form method="post"><button class="newsfeed-page-button" type="submit" name="go_to_hatescription" value="'.$location.'">'.$location.'</button></form>';?>
 	  </div>
 	  <!--<div class="lighter-red-row">
 		 <p><b>Sort reviews by:	</b></p>
