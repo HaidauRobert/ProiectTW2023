@@ -14,7 +14,14 @@ class Newsfeed extends Controller {
 
         $userId = $_SESSION['userid'];
 
-        $selected_class = 19;
+        if (isset($_SESSION['selected_class']))
+        {
+            $selected_class = $_SESSION['selected_class'];
+        }
+        else
+        {
+            $selected_class = 1;
+        }
 
         check_login($model->connection);
         if ($model->isAdmin($userId))
@@ -91,6 +98,16 @@ class Newsfeed extends Controller {
         $data['item_total_reviews'] = $item_total_reviews;
 
         $data['user_is_subbed'] = $model->get_user_is_subscribed_to_class($userId, $selected_class);
+
+        if ($_SERVER['REQUEST_METHOD']=="POST")
+        {
+            if (isset($_POST['go_to_hatescription'])) {
+                $pressedButton = $_POST['go_to_hatescription'];
+                $_SESSION['selected_class'] = $model->get_class_id_by_name($pressedButton);
+
+                header("Location: http://localhost/ProiectTW2023/MVC/public/newsfeed");
+            }
+        }
 
         $this->view('newsfeed', $data);
     }

@@ -58,9 +58,11 @@
 	  </div>
 
 	  <div class="scroll-box">
+	  
 		<?php $user_subscriptions = $data['user_subscriptions'];
 		 foreach ($user_subscriptions as $subscription) {
-    		echo '<button class="hatescribed-item">' . $subscription. '</button>';
+    		echo '<form method="post">
+			<button class="hatescribed-item" type="submit" name="go_to_hatescription" value="'.$subscription.'">' . $subscription. '</button></form>';
 		}?>
 	  </div>
 </div>
