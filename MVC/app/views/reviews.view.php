@@ -54,8 +54,12 @@
 		</select>
 	  </div> -->
 	  <div class="lighter-red-row">
-		<p><b>You hate this place too? Tell the workd about! </b></p>
-		<button class="newsfeed-page-button">I hate this thing!</button>
+		<p><b>You hate this place too? Tell the world about it! </b></p>
+		<form action="../public/newpost" method="post">
+			<input type="hidden" name="preset_name" value="<?php echo $data['selected_item_name'] ?>">
+			<input type="hidden" name="preset_location" value="<?php echo $data['location_tag'] ?>">
+			<button type="submit" class="newsfeed-page-button">Add Rating</button>
+		</form>
 	  </div>
 </div>
 	<div class="container margin">
