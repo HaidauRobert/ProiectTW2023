@@ -17,7 +17,16 @@ class Reviews extends Controller {
         check_login($model->connection);
         if ($model->isAdmin($userId))
             $data['admin'] = true;
-        $selected_item_id = 1;
+
+        
+        if (isset($_SESSION['selected_item_id']))
+        {
+            $selected_item_id = $_SESSION['selected_item_id'];
+        }
+        else
+        {
+            $selected_item_id = $model->get_all_items()[0][0];
+        }
 
         $selected_item_reviews = $model->get_all_item_reviews($selected_item_id);
 
@@ -65,6 +74,24 @@ class Reviews extends Controller {
         $data['most_liked_review_description'] = $most_liked[5];
 
         $data['average_review_value'] = $model->get_average_item_score($selected_item_id);
+
+        if ($_SERVER['REQUEST_METHOD']=="POST")
+        {
+            if (isset($_POST['like'])) 
+            {
+                $review_id = $_POST['like'];
+                $model->like_review($userId, $review_id);
+
+                header("Location: http://localhost/ProiectTW2023/MVC/public/reviews");
+            }
+
+            if (isset($_POST['unlike'])) 
+            {
+                $review_id = $_POST['unlike'];
+                $model->unlike_review($userId, $review_id);
+                header("Location: http://localhost/ProiectTW2023/MVC/public/reviews");
+            }
+        }
 
         $this->view('reviews', $data);
     }

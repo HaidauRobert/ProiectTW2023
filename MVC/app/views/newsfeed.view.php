@@ -48,17 +48,6 @@
 		</form>
 	  </div>
 	  <div class="lighter-red-row">
-		<p><b>You hate something? Tell us all about it! </b></p>
-		<button class="newsfeed-page-button">I hate something!</button>
-	  </div>
-	  <div class="lighter-red-row">
-		<p><b>Looking for something? Let's look togheter!</b></p>
-		<div class="search-bar">
-			<input type="text" placeholder="Search...">
-			<button class="newsfeed-page-button">Go</button>
-		</div>
-	  </div>
-	  <div class="lighter-red-row">
 		<p><b>Your hatescriptions: </b></p>
 	  </div>
 
@@ -101,7 +90,7 @@
 						<div class="tags">
 							<form method="post"><button type="submit" name="go_to_hatescription" value= "'.$data['locations'][$i].'">'.$data['locations'][$i].'</button></form>
 						</div>
-						<button class="view-ratings"> View Ratings</button>
+						<form method="post"><button class="view-ratings" name="view_ratings" value= "'.$items_from_selected_class[$i][0].'"> View Ratings</button></form>
 						<button class="add-rating">Add Rating</button>
 					</div>
 				</div>';

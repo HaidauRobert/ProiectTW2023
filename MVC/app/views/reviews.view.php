@@ -67,9 +67,13 @@
 				$emoji_path = get_emoji_path_from_score($all_reviews[$i][4]);
 
 				$is_liked = "Like!";
+				$like_unlike_post = 'like';
 
 				if ($data['user_has_liked_review'][$i] == 1)
+				{
 					$is_liked = "Un-Like!";
+					$like_unlike_post = 'unlike';
+				}
 
 				echo '		
 				<div class="review">
@@ -82,7 +86,7 @@
 						<p><b>'.$all_reviews[$i][4].' / -5</b></p>
 						<p><b>'.$all_reviews[$i][5].'</b></p>
 						<p>'.$data['like_count'][$i].' people found this review useful
-						<button class="newsfeed-page-button">'.$is_liked.'</button></p>
+						<form method="post"><button class="newsfeed-page-button type="submit" name="'.$like_unlike_post.'" value="'.$all_reviews[$i][0].'">'.$is_liked.'</button></form></p>
 					</div>
 				</div>';
 			}

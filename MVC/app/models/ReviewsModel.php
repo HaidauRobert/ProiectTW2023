@@ -8,6 +8,10 @@ class ReviewsModel extends Model
     {
         $all_rows = $this->get_all_item_reviews($item_id);
 
+
+        if (count($all_rows) == 0)
+            return 0;
+
         $avg = 0.0;
         $count = 0.0;
 
@@ -36,5 +40,23 @@ class ReviewsModel extends Model
     {
         $query = "SELECT * FROM items where item_id = ".$item_id;
         return $this->execute_query($query)[0];
+    }
+
+    public function like_review($user_id, $review_id)
+    {
+        $query = "INSERT into likes (liker_user_id, liked_review_id) values ('$user_id', '$review_id')";
+        $this->execute_query_without_fetch($query);
+    }
+
+    public function unlike_review($user_id, $review_id)
+    {
+        $query = 'DELETE FROM likes WHERE liker_user_id = '.$user_id.' and liked_review_id = '.$review_id;
+        $this->execute_query_without_fetch($query);
+    }
+
+    public function get_all_items()
+    {
+        $query = 'SELECT * FROM items';
+        return $this->execute_query($query);
     }
 }

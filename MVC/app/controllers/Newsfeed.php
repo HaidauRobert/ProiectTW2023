@@ -134,6 +134,14 @@ class Newsfeed extends Controller {
                     header("Location: http://localhost/ProiectTW2023/MVC/public/newsfeed");
                 }
             }
+
+            if (isset($_POST['view_ratings'])) {
+                $target_item = $_POST['view_ratings'];
+                $_SESSION['selected_item_id'] = $_POST['view_ratings'];
+                header("Location: http://localhost/ProiectTW2023/MVC/public/reviews");
+            }
+
+
         }
 
         $this->view('newsfeed', $data);
