@@ -62,7 +62,7 @@
 </div>
 	<div class="container margin">
 			<?php $items_from_selected_class = $data['items_from_selected_class'];
-
+				$photo = $data['most_liked_review'];
 
 			for ($i = 0; $i < count($items_from_selected_class); $i++)
 			{
@@ -72,7 +72,7 @@
 				echo 			
 				'<div class="entry">
 					<div class="entry-image">
-						<img src="<?php echo ROOT ?>/poze/kfc.png" alt="entry image">
+					<img src="'.ROOT.'/poze/'.$photo[$i][11].'" alt="entry image">
 					</div>
 					<div class="entry-content">
 						<h2>'.$items_from_selected_class[$i][1].'</h2>
