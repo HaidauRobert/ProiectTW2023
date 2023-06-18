@@ -25,6 +25,9 @@ ol {
 ol ol{
     font-size:75%;
 }
+ol li{
+    list-style: none;
+  }
 ol img{
     width:50%;
 }
