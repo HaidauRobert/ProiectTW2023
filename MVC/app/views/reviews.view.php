@@ -65,7 +65,6 @@
 	<div class="container margin">
 
 		<?php $all_reviews = $data['selected_item_reviews'];
-		
 			for ($i = 0; $i < count($all_reviews); $i++)
 			{
 				$emoji_path = get_emoji_path_from_score($all_reviews[$i][4]);
@@ -82,7 +81,7 @@
 				echo '		
 				<div class="review">
 					<div class="entry-image">
-						<img src="<?php echo ROOT ?>/poze/poorlymadechicken.png" alt="entry image">
+					<img src="'.ROOT.'/poze/'.$all_reviews[$i][11].'" alt="entry image">
 					</div>
 					<div>
 						<h3>Date:'.$all_reviews[$i][1].' by <b>'.$data['review_authors'][$i].'</b></h3>
