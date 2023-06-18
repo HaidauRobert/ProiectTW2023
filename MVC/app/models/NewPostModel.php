@@ -3,7 +3,7 @@
 class NewPostModel extends Model {
 
     public function getClasses() {
-        $query = "SELECT class_name FROM classes WHERE is_aproved='1' ";
+        $query = "SELECT class_name FROM classes WHERE is_aproved='1' AND class_id NOT IN (SELECT class_id FROM Locations)";
         $result = mysqli_query($this->connection, $query);
         $rows = mysqli_fetch_all($result);
 
