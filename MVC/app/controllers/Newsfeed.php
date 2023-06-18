@@ -6,7 +6,6 @@ error_reporting(E_ALL);
 
 class Newsfeed extends Controller {
     public function index() {
-        echo "This is the controller of the NewsFeed page.";
 
         $data = array();
 

@@ -6,7 +6,6 @@ error_reporting(E_ALL);
 
 class Reviews extends Controller {
     public function index() {
-        echo "This is the controller of the Reviews page.";
 
         $model = new ReviewsModel();
 
