@@ -8,6 +8,7 @@ class Home extends Controller {
         $data = array();
         $homeModel = new HomeModel();
         $userId = $_SESSION['userid'];
+        $data['reviewCount'] = $homeModel->getReviewCount($userId);
         if ($model->isAdmin($userId))
             $data['admin'] = true;
         check_login($model->connection);

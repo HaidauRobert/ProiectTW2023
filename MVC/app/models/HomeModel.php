@@ -23,4 +23,16 @@ class HomeModel extends Model {
             return false;
         }
     }
+    public function getReviewCount($userId)
+    {
+        $sql = "SELECT COUNT(*) AS review_count FROM reviews WHERE reviewer_user_id = $userId";
+        $result = $this->connection->query($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row['review_count'];
+        } else {
+            return 0;
+        }
+    }
+
 }

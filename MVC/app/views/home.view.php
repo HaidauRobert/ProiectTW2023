@@ -182,7 +182,7 @@
         <div class="username">  <?php if (!empty($data['name'])): ?>
                                 <?php echo $data['name']; ?>
                                 <?php endif; ?></div>
-        <div class="reviews">Reviews: 50</div>
+        <div class="reviews">Reviews: <?php echo $data['reviewCount']; ?></div>
       </div>
       <div class="buttons">
       <a href="newpost"><button class="newsfeed-page-button">I hate it!</button></a>
