@@ -79,6 +79,14 @@
             return $class_row[0][1];
         }
 
+        public function get_class_id_by_name($class_name)
+        {
+            echo "class name:".$class_name;
+            $class_row = $this->execute_query("SELECT * FROM classes where class_name = '$class_name'");
+            print_r($class_row);
+            return $class_row[0][0];
+        }
+
         public function get_average_item_score($item_id)
         {
             $all_rows = $this->get_all_item_reviews($item_id);
