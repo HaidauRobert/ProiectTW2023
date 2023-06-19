@@ -13,7 +13,7 @@ class Signup extends Controller {
             $data['message'] = $name_error;
             if ($name_error == "") {
                 $signupModel->saveUser($user_name, $password, $email);
-                header("Location: http://localhost/ProiectTW2023/MVC/public/home");
+                header("Location: http://localhost/ProiectTW2023/MVC/public/login");
                 die;
             }
         }
